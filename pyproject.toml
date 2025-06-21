@@ -1,0 +1,232 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "imhotep"
+version = "0.1.0"
+description = "High-Performance Specialized Neural Network Framework"
+authors = [
+    {name = "Imhotep Development Team", email = "dev@imhotep-framework.org"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+keywords = [
+    "neural-networks",
+    "neuroscience", 
+    "quantum-biology",
+    "performance",
+    "rust"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "matplotlib>=3.4.0",
+    "pandas>=1.3.0",
+    "h5py>=3.1.0",
+    "typing-extensions>=4.0.0; python_version < '3.10'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-benchmark>=4.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=5.0.0",
+    "mypy>=0.991",
+    "pre-commit>=2.20.0",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "sphinxcontrib-napoleon>=0.7.0",
+    "myst-parser>=0.18.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-benchmark>=4.0.0",
+    "hypothesis>=6.0.0",
+]
+benchmark = [
+    "pytest-benchmark>=4.0.0",
+    "memory-profiler>=0.60.0",
+    "line-profiler>=4.0.0",
+]
+visualization = [
+    "plotly>=5.0.0",
+    "seaborn>=0.11.0",
+    "networkx>=2.8.0",
+]
+jupyter = [
+    "jupyter>=1.0.0",
+    "ipywidgets>=8.0.0",
+    "notebook>=6.4.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fullscreen-triangle/imhotep"
+"Documentation" = "https://docs.rs/imhotep"
+"Repository" = "https://github.com/fullscreen-triangle/imhotep"
+"Bug Tracker" = "https://github.com/fullscreen-triangle/imhotep/issues"
+"Changelog" = "https://github.com/fullscreen-triangle/imhotep/blob/main/CHANGELOG.md"
+
+[project.scripts]
+imhotep = "imhotep.cli:main"
+
+[tool.maturin]
+python-source = "python"
+module-name = "imhotep._core"
+features = ["python"]
+strip = true
+sdist-include = [
+    "python/**/*",
+    "src/**/*",
+    "Cargo.toml",
+    "Cargo.lock",
+    "build.rs",
+    "README.md",
+    "LICENSE",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=imhotep",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+testpaths = ["tests", "python/tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "gpu: marks tests requiring GPU",
+    "benchmark: marks performance benchmark tests",
+    "integration: marks integration tests",
+]
+
+[tool.coverage.run]
+source = ["python/imhotep"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["imhotep"]
+known_third_party = ["numpy", "scipy", "matplotlib", "pandas"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "imhotep._core",
+    "scipy.*",
+    "matplotlib.*",
+    "h5py.*",
+]
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["B011"]
+
+[tool.bandit]
+exclude_dirs = ["tests", "build", "dist"]
+skips = ["B101", "B601"] 

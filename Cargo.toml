@@ -1,0 +1,207 @@
+[package]
+name = "imhotep"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["Imhotep Development Team <dev@imhotep-framework.org>"]
+license = "MIT"
+description = "High-Performance Specialized Neural Network Framework"
+homepage = "https://github.com/fullscreen-triangle/imhotep"
+repository = "https://github.com/fullscreen-triangle/imhotep"
+documentation = "https://docs.rs/imhotep"
+readme = "README.md"
+keywords = ["neural-networks", "neuroscience", "quantum-biology", "performance", "rust"]
+categories = ["science", "algorithms", "simulation"]
+exclude = ["assets/", "docs/", "experiments/", "benchmarks/"]
+
+[lib]
+name = "imhotep"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "imhotep-cli"
+path = "src/bin/cli.rs"
+
+[dependencies]
+# Core mathematical and numerical computing
+nalgebra = { version = "0.32", features = ["serde-serialize"] }
+ndarray = { version = "0.15", features = ["rayon", "serde"] }
+num-traits = "0.2"
+num-complex = "0.4"
+rand = { version = "0.8", features = ["simd_support"] }
+rand_distr = "0.4"
+
+# Performance and parallelization
+rayon = "1.7"
+crossbeam = "0.8"
+parking_lot = "0.12"
+
+# SIMD support
+wide = "0.7"
+
+# Serialization and configuration
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Logging and monitoring
+log = "0.4"
+env_logger = "0.10"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Metrics and profiling
+metrics = "0.21"
+criterion = { version = "0.5", optional = true }
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Memory management
+memmap2 = "0.7"
+
+# Async runtime (optional)
+tokio = { version = "1.0", features = ["full"], optional = true }
+
+# Python FFI
+pyo3 = { version = "0.19", features = ["extension-module"], optional = true }
+
+# WebAssembly
+wasm-bindgen = { version = "0.2", optional = true }
+js-sys = { version = "0.3", optional = true }
+web-sys = { version = "0.3", optional = true }
+
+# GPU computing (CUDA)
+cudarc = { version = "0.9", optional = true }
+
+# C FFI
+libc = "0.2"
+
+# Property testing
+proptest = { version = "1.2", optional = true }
+
+# Benchmarking
+iai = { version = "0.1", optional = true }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.2"
+quickcheck = "1.0"
+quickcheck_macros = "1.0"
+approx = "0.5"
+tempfile = "3.8"
+
+[build-dependencies]
+cc = "1.0"
+bindgen = { version = "0.68", optional = true }
+
+[features]
+default = ["std", "parallel", "simd"]
+
+# Core features
+std = []
+parallel = ["rayon", "crossbeam"]
+simd = ["wide"]
+
+# Platform features
+python = ["pyo3"]
+wasm = ["wasm-bindgen", "js-sys", "web-sys"]
+cuda = ["cudarc"]
+async = ["tokio"]
+
+# Development features
+benchmarks = ["criterion", "iai"]
+property-tests = ["proptest"]
+codegen = ["bindgen"]
+
+# Performance profiles
+fast = ["parallel", "simd"]
+max-performance = ["fast", "cuda"]
+
+# Safety features
+safe = []
+unsafe-optimizations = []
+
+[profile.dev]
+opt-level = 0
+debug = true
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+overflow-checks = false
+
+[profile.bench]
+opt-level = 3
+debug = false
+lto = true
+codegen-units = 1
+overflow-checks = false
+
+[profile.test]
+opt-level = 1
+debug = true
+overflow-checks = true
+
+# Workspace configuration for multi-crate project
+[workspace]
+members = [
+    "crates/core",
+    "crates/python",
+    "crates/wasm", 
+    "crates/cuda",
+    "crates/benchmarks"
+]
+
+[workspace.dependencies]
+imhotep-core = { path = "crates/core" }
+
+# Package metadata
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[package.metadata.maturin]
+python-source = "python"
+module-name = "imhotep._core"
+
+# Benchmarking configuration
+[[bench]]
+name = "neural_unit"
+harness = false
+
+[[bench]]
+name = "network_topology"
+harness = false
+
+[[bench]]
+name = "signal_processing"
+harness = false
+
+# Example binaries
+[[example]]
+name = "basic_neural_network"
+path = "examples/basic_neural_network.rs"
+
+[[example]]
+name = "oscillatory_dynamics"
+path = "examples/oscillatory_dynamics.rs"
+
+[[example]]
+name = "quantum_processing"
+path = "examples/quantum_processing.rs"
+
+# Integration with external tools
+[package.metadata.cross.target.x86_64-unknown-linux-gnu]
+dockerfile = "Dockerfile.cross"
+
+[package.metadata.cross.target.aarch64-unknown-linux-gnu]
+dockerfile = "Dockerfile.cross" 
