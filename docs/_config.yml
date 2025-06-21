@@ -1,0 +1,88 @@
+title: Imhotep Framework
+description: High-Performance Specialized Neural Network Framework with Quantum-Enhanced Consciousness Simulation
+url: "https://organization.github.io"
+baseurl: "/imhotep"
+
+# Theme configuration
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Navigation menu
+header_pages:
+  - index.md
+  - getting-started.md
+  - turbulence_syntax.md
+  - turbulence_compiler.md
+  - system.md
+  - theory.md
+  - neural_architecture.md
+  - neuron.md
+  - transduction.md
+  - examples.md
+  - api-reference.md
+
+# Site settings
+author: Imhotep Development Team
+email: contact@imhotep-framework.org
+github_username: organization
+repository: organization/imhotep
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections
+collections:
+  examples:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "examples"
+    values:
+      layout: "example"
+
+# Custom variables
+version: "1.0.0"
+release_date: "2024"
+license: "MIT"
+
+# Social links
+social_links:
+  github: organization/imhotep
+  twitter: imhotep_framework
+
+# SEO settings
+google_analytics: UA-XXXXXXXX-X
+lang: en_US
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - "*.gemspec"
+  - README.md 
