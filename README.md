@@ -114,7 +114,7 @@ If you use this framework in your research, please cite:
 ```bibtex
 @software{imhotep2024,
   title={Imhotep: High-Performance Specialized Neural Network Framework},
-  author={Imhotep Development Team},
+  author={Kundai Farai Sachikonye},
   year={2024},
   url={https://github.com/fullscreen-triangle/imhotep}
 }
