@@ -32,12 +32,12 @@ rand = { version = "0.8", features = ["simd_support"] }
 rand_distr = "0.4"
 
 # Performance and parallelization
-rayon = "1.7"
-crossbeam = "0.8"
+rayon = { version = "1.7", optional = true }
+crossbeam = { version = "0.8", optional = true }
 parking_lot = "0.12"
 
 # SIMD support
-wide = "0.7"
+wide = { version = "0.7", optional = true }
 
 # Serialization and configuration
 serde = { version = "1.0", features = ["derive"] }
@@ -151,18 +151,7 @@ opt-level = 1
 debug = true
 overflow-checks = true
 
-# Workspace configuration for multi-crate project
-[workspace]
-members = [
-    "crates/core",
-    "crates/python",
-    "crates/wasm", 
-    "crates/cuda",
-    "crates/benchmarks"
-]
-
-[workspace.dependencies]
-imhotep-core = { path = "crates/core" }
+# Single crate project - workspace configuration removed
 
 # Package metadata
 [package.metadata.docs.rs]
@@ -173,31 +162,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 python-source = "python"
 module-name = "imhotep._core"
 
-# Benchmarking configuration
-[[bench]]
-name = "neural_unit"
-harness = false
-
-[[bench]]
-name = "network_topology"
-harness = false
-
-[[bench]]
-name = "signal_processing"
-harness = false
-
-# Example binaries
-[[example]]
-name = "basic_neural_network"
-path = "examples/basic_neural_network.rs"
-
-[[example]]
-name = "oscillatory_dynamics"
-path = "examples/oscillatory_dynamics.rs"
-
-[[example]]
-name = "quantum_processing"
-path = "examples/quantum_processing.rs"
+# Benchmarking and examples configuration removed - files don't exist yet
 
 # Integration with external tools
 [package.metadata.cross.target.x86_64-unknown-linux-gnu]
