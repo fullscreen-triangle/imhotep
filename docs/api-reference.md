@@ -980,5 +980,5 @@ pub enum ConsciousnessError {
 **Next Steps:**
 - **[Getting Started Guide]({{ '/getting-started' | relative_url }})**: Installation and first consciousness simulation
 - **[Examples]({{ '/examples' | relative_url }})**: Complete implementation examples
-- **[GitHub Repository](https://github.com/organization/imhotep)**: Source code and contributions
+- **[GitHub Repository](https://github.com/fullscreen-triangle/imhotep)**: Source code and contributions
 </rewritten_file> 

@@ -13,7 +13,7 @@ title: Home
     <a href="{{ '/turbulence_syntax' | relative_url }}" class="btn btn-secondary">
       <i class="fas fa-code"></i> Turbulence Language
     </a>
-    <a href="https://github.com/organization/imhotep" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+    <a href="https://github.com/fullscreen-triangle/imhotep" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
       <i class="fab fa-github"></i> View on GitHub
     </a>
   </div>
@@ -218,7 +218,7 @@ Imhotep maintains rigorous scientific methodology while enabling unprecedented i
 
 ### Installation
 ```bash
-git clone https://github.com/organization/imhotep
+git clone https://github.com/fullscreen-triangle/imhotep
 cd imhotep
 make install
 ```
@@ -244,7 +244,7 @@ imhotep analyze metabolomic_diabetes.hre
     </div>
     <h3>GitHub Repository</h3>
     <p>Source code, issues, and contributions welcome.</p>
-    <a href="https://github.com/organization/imhotep" target="_blank" rel="noopener noreferrer" class="feature-link">
+    <a href="https://github.com/fullscreen-triangle/imhotep" target="_blank" rel="noopener noreferrer" class="feature-link">
       View Repository <i class="fas fa-external-link-alt"></i>
     </a>
   </div>

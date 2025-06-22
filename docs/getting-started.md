@@ -90,7 +90,7 @@ nvidia-smi
 
 ```bash
 # Clone the repository
-git clone https://github.com/organization/imhotep.git
+git clone https://github.com/fullscreen-triangle/imhotep.git
 cd imhotep
 
 # Run the automated installation
@@ -106,7 +106,7 @@ imhotep doctor  # Check system compatibility
 #### Step 1: Clone and Build Core Framework
 ```bash
 # Clone repository
-git clone https://github.com/organization/imhotep.git
+git clone https://github.com/fullscreen-triangle/imhotep.git
 cd imhotep
 
 # Build Rust components
@@ -492,8 +492,8 @@ imhotep configure --reset-dependencies
 - **[Research Applications]({{ '/theory' | relative_url }})**: Scientific foundation and research directions
 
 ### Community
-- **[GitHub Discussions](https://github.com/organization/imhotep/discussions)**: Community support and discussions
-- **[Issue Tracker](https://github.com/organization/imhotep/issues)**: Bug reports and feature requests
+- **[GitHub Discussions](https://github.com/fullscreen-triangle/imhotep/discussions)**: Community support and discussions
+- **[Issue Tracker](https://github.com/fullscreen-triangle/imhotep/issues)**: Bug reports and feature requests
 - **[Research Collaboration](mailto:research@imhotep-framework.org)**: Academic partnerships
 
 <div class="alert alert-success">

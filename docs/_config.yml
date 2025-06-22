@@ -1,6 +1,6 @@
 title: Imhotep Framework
 description: High-Performance Specialized Neural Network Framework with Quantum-Enhanced Consciousness Simulation
-url: "https://organization.github.io"
+url: "https://fullscreen-triangle.github.io"
 baseurl: "/imhotep"
 
 # Theme configuration
@@ -27,8 +27,8 @@ header_pages:
 # Site settings
 author: Imhotep Development Team
 email: contact@imhotep-framework.org
-github_username: organization
-repository: organization/imhotep
+github_username: fullscreen-triangle
+repository: fullscreen-triangle/imhotep
 
 # Build settings
 markdown: kramdown
@@ -36,6 +36,10 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+# Disable SASS processing since we're using plain CSS
+sass:
+  style: compressed
 
 # Collections
 collections:
@@ -68,7 +72,7 @@ license: "MIT"
 
 # Social links
 social_links:
-  github: organization/imhotep
+  github: fullscreen-triangle/imhotep
   twitter: imhotep_framework
 
 # SEO settings

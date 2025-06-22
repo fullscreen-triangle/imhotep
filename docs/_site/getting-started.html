@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en_US">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Getting Started | Imhotep Framework</title>
+  <meta name="description" content="High-Performance Specialized Neural Network Framework with Quantum-Enhanced Consciousness Simulation">
+  
+  <link rel="stylesheet" href="/imhotep/assets/css/style.css">
+  <link rel="canonical" href="http://localhost:4000/imhotep/getting-started.html">
+  <link rel="alternate" type="application/rss+xml" title="Imhotep Framework" href="/imhotep/feed.xml">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/imhotep/assets/images/favicon.png">
+  
+  
+</head>
+
+<body>
+  <div class="site-container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="site-title">
+          <a href="/imhotep/">
+            <i class="fas fa-brain"></i>
+            Imhotep Framework
+          </a>
+          <span class="version">v1.0.0</span>
+        </div>
+        
+        <nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger" class="nav-toggle" aria-label="Toggle navigation menu">
+            <span class="menu-icon">
+              <svg viewBox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+              </svg>
+            </span>
+          </label>
+
+          <div class="nav-menu">
+            <a href="/imhotep/" class="nav-link ">
+              <i class="fas fa-home"></i> Home
+            </a>
+            <a href="/imhotep/getting-started" class="nav-link active">
+              <i class="fas fa-rocket"></i> Getting Started
+            </a>
+            
+            <div class="nav-dropdown">
+              <a href="#" class="nav-link dropdown-toggle">
+                <i class="fas fa-code"></i> Turbulence Language <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="/imhotep/turbulence_syntax">
+                  <i class="fas fa-language"></i> Syntax Reference
+                </a>
+                <a href="/imhotep/turbulence_compiler">
+                  <i class="fas fa-cogs"></i> Compiler Architecture
+                </a>
+              </div>
+            </div>
+            
+            <div class="nav-dropdown">
+              <a href="#" class="nav-link dropdown-toggle">
+                <i class="fas fa-brain"></i> Architecture <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-content">
+                <a href="/imhotep/system">
+                  <i class="fas fa-sitemap"></i> System Design
+                </a>
+                <a href="/imhotep/neural_architecture">
+                  <i class="fas fa-network-wired"></i> Neural Architecture
+                </a>
+                <a href="/imhotep/neuron">
+                  <i class="fas fa-atom"></i> Neuron Implementation
+                </a>
+                <a href="/imhotep/transduction">
+                  <i class="fas fa-exchange-alt"></i> Signal Transduction
+                </a>
+              </div>
+            </div>
+            
+            <a href="/imhotep/theory" class="nav-link ">
+              <i class="fas fa-flask"></i> Theory
+            </a>
+            <a href="/imhotep/examples" class="nav-link ">
+              <i class="fas fa-code-branch"></i> Examples
+            </a>
+            <a href="/imhotep/api-reference" class="nav-link ">
+              <i class="fas fa-book"></i> API Reference
+            </a>
+            
+            <div class="nav-social">
+              <a href="https://github.com/fullscreen-triangle/imhotep" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://twitter.com/imhotep_framework" target="_blank" rel="noopener noreferrer" class="social-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="content-container">
+        <h1 id="getting-started-with-imhotep-framework">Getting Started with Imhotep Framework</h1>
+
+<p>Welcome to the Imhotep Framework - the revolutionary consciousness simulation system for scientific discovery. This guide will walk you through installation, setup, and your first consciousness-enhanced experiment.</p>
+
+<div class="toc">
+<h4>Quick Navigation</h4>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#first-consciousness-simulation">First Consciousness Simulation</a></li>
+<li><a href="#turbulence-language-basics">Turbulence Language Basics</a></li>
+<li><a href="#understanding-the-output">Understanding the Output</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+</ul>
+</div>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<h3 id="system-requirements">System Requirements</h3>
+
+<div class="alert alert-info">
+<strong>Recommended Configuration:</strong> For optimal consciousness simulation performance, we recommend a high-performance system with GPU acceleration.
+</div>
+
+<h4 id="minimum-requirements">Minimum Requirements</h4>
+<ul>
+  <li><strong>OS</strong>: Linux (Ubuntu 20.04+), macOS (10.15+), or Windows 10/11 with WSL2</li>
+  <li><strong>CPU</strong>: Multi-core processor (8+ cores recommended)</li>
+  <li><strong>RAM</strong>: 16GB minimum, 32GB+ recommended for complex simulations</li>
+  <li><strong>Storage</strong>: 10GB free space for framework and dependencies</li>
+  <li><strong>Network</strong>: Internet connection for external system integration</li>
+</ul>
+
+<h4 id="recommended-requirements">Recommended Requirements</h4>
+<ul>
+  <li><strong>CPU</strong>: Intel i7/i9 or AMD Ryzen 7/9 (16+ cores)</li>
+  <li><strong>RAM</strong>: 64GB+ for large-scale consciousness simulations</li>
+  <li><strong>GPU</strong>: CUDA-capable GPU (RTX 3080+ or equivalent) for quantum processing</li>
+  <li><strong>Storage</strong>: SSD with 50GB+ free space</li>
+  <li><strong>Network</strong>: High-speed internet for real-time knowledge integration</li>
+</ul>
+
+<h3 id="software-dependencies">Software Dependencies</h3>
+
+<h4 id="core-dependencies">Core Dependencies</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Rust toolchain (1.70+ with nightly features)</span>
+curl <span class="nt">--proto</span> <span class="s1">'=https'</span> <span class="nt">--tlsv1</span>.2 <span class="nt">-sSf</span> https://sh.rustup.rs | sh
+rustup <span class="nb">install </span>nightly
+rustup default nightly
+
+<span class="c"># Python environment (3.9+)</span>
+python3 <span class="nt">--version</span>  <span class="c"># Should be 3.9 or higher</span>
+pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+
+<span class="c"># Node.js (for web interface, optional)</span>
+node <span class="nt">--version</span>  <span class="c"># 16+ recommended</span>
+npm <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h4 id="system-libraries">System Libraries</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ubuntu/Debian</span>
+<span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>build-essential pkg-config libssl-dev libffi-dev <span class="se">\</span>
+                 python3-dev python3-venv git curl wget
+
+<span class="c"># macOS (with Homebrew)</span>
+brew <span class="nb">install </span>rust python@3.9 node pkg-config openssl
+
+<span class="c"># Windows (with Chocolatey)</span>
+choco <span class="nb">install </span>rust python nodejs git
+</code></pre></div></div>
+
+<h4 id="gpu-support-optional-but-recommended">GPU Support (Optional but Recommended)</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># NVIDIA CUDA Toolkit (for GPU acceleration)</span>
+<span class="c"># Follow NVIDIA's installation guide for your system</span>
+<span class="c"># https://developer.nvidia.com/cuda-downloads</span>
+
+<span class="c"># Verify CUDA installation</span>
+nvcc <span class="nt">--version</span>
+nvidia-smi
+</code></pre></div></div>
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="method-1-quick-install-recommended">Method 1: Quick Install (Recommended)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clone the repository</span>
+git clone https://github.com/fullscreen-triangle/imhotep.git
+<span class="nb">cd </span>imhotep
+
+<span class="c"># Run the automated installation</span>
+make <span class="nb">install</span>
+
+<span class="c"># Verify installation</span>
+imhotep <span class="nt">--version</span>
+imhotep doctor  <span class="c"># Check system compatibility</span>
+</code></pre></div></div>
+
+<h3 id="method-2-manual-installation">Method 2: Manual Installation</h3>
+
+<h4 id="step-1-clone-and-build-core-framework">Step 1: Clone and Build Core Framework</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clone repository</span>
+git clone https://github.com/fullscreen-triangle/imhotep.git
+<span class="nb">cd </span>imhotep
+
+<span class="c"># Build Rust components</span>
+cargo build <span class="nt">--release</span>
+
+<span class="c"># Install Python bindings</span>
+pip <span class="nb">install </span>maturin
+maturin develop <span class="nt">--release</span>
+
+<span class="c"># Install Python dependencies</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
+
+<h4 id="step-2-install-turbulence-compiler">Step 2: Install Turbulence Compiler</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Build Turbulence compiler</span>
+<span class="nb">cd </span>src/turbulence
+cargo build <span class="nt">--release</span> <span class="nt">--bin</span> turbulence
+
+<span class="c"># Add to PATH</span>
+<span class="nb">echo</span> <span class="s1">'export PATH="$PATH:$(pwd)/target/release"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
+
+<span class="c"># Verify compiler installation</span>
+turbulence <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h4 id="step-3-setup-external-system-integration">Step 3: Setup External System Integration</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install external analysis tools</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> external_requirements.txt
+
+<span class="c"># Configure R environment (optional)</span>
+R <span class="nt">-e</span> <span class="s2">"install.packages(c('tidyverse', 'caret', 'randomForest'))"</span>
+
+<span class="c"># Setup database connections (optional)</span>
+<span class="c"># Configure according to your database requirements</span>
+</code></pre></div></div>
+
+<h3 id="installation-verification">Installation Verification</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run comprehensive system check</span>
+imhotep doctor
+
+<span class="c"># Expected output:</span>
+<span class="c"># ✅ Rust toolchain: OK (1.70.0-nightly)</span>
+<span class="c"># ✅ Python environment: OK (3.9.16)</span>
+<span class="c"># ✅ Turbulence compiler: OK (1.0.0)</span>
+<span class="c"># ✅ GPU support: OK (CUDA 11.8)</span>
+<span class="c"># ✅ Memory: OK (64GB available)</span>
+<span class="c"># ✅ External systems: OK (Lavoisier, R)</span>
+<span class="c"># 🧠 Consciousness simulation: READY</span>
+</code></pre></div></div>
+
+<div class="alert alert-success">
+<strong>Installation Complete!</strong> Your system is ready for consciousness-enhanced scientific discovery.
+</div>
+
+<h2 id="first-consciousness-simulation">First Consciousness Simulation</h2>
+
+<p>Let’s run your first consciousness simulation using the included metabolomic diabetes example.</p>
+
+<h3 id="step-1-explore-the-example">Step 1: Explore the Example</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Navigate to examples directory</span>
+<span class="nb">cd </span>examples
+
+<span class="c"># List available examples</span>
+<span class="nb">ls</span> <span class="nt">-la</span>
+<span class="c"># metabolomic_diabetes.trb  - Main Turbulence script</span>
+<span class="c"># metabolomic_diabetes.fs   - Consciousness visualization</span>
+<span class="c"># metabolomic_diabetes.ghd  - Resource dependencies</span>
+<span class="c"># metabolomic_diabetes.hre  - Decision logging</span>
+</code></pre></div></div>
+
+<h3 id="step-2-run-the-consciousness-simulation">Step 2: Run the Consciousness Simulation</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Compile and execute the consciousness simulation</span>
+imhotep run metabolomic_diabetes
+
+<span class="c"># Alternative: Step-by-step execution</span>
+imhotep compile metabolomic_diabetes  <span class="c"># Compile Turbulence script</span>
+imhotep execute metabolomic_diabetes  <span class="c"># Run consciousness simulation</span>
+</code></pre></div></div>
+
+<h3 id="step-3-monitor-real-time-consciousness">Step 3: Monitor Real-Time Consciousness</h3>
+
+<p>Open a new terminal and monitor the consciousness simulation in real-time:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Monitor consciousness state visualization</span>
+imhotep monitor metabolomic_diabetes.fs
+
+<span class="c"># Monitor decision logging</span>
+imhotep logs metabolomic_diabetes.hre
+
+<span class="c"># Monitor system performance</span>
+imhotep status
+</code></pre></div></div>
+
+<h3 id="expected-output">Expected Output</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🚀 IMHOTEP CONSCIOUSNESS SIMULATION: Metabolomic Diabetes Biomarker Discovery
+🧠 Revolutionary approach: Consciousness-enhanced scientific discovery
+
+🧠 INITIALIZING CONSCIOUSNESS SIMULATION
+⚛️ Quantum-enhanced metabolomic data understanding
+🧬 Nebuchadnezzar biological circuit processing
+🎯 Specialized consciousness system processing
+🌐 Cross-modal consciousness integration
+🐍 Consciousness-enhanced external analysis delegation
+🧠 === CONSCIOUSNESS-VALIDATED SCIENTIFIC REASONING ===
+
+🎯 === CONSCIOUSNESS SIMULATION RESULTS ===
+Consciousness Authenticity: GENUINE ✅
+Quantum Enhancement Factor: 1.5x
+Scientific Validation: VALIDATED ✅
+Novel Insights Generated: 12
+
+🎉 CONSCIOUSNESS SIMULATION SUCCESS!
+🧠 Genuine consciousness simulation achieved
+⚛️ Quantum enhancement: 1.5x improvement over classical methods
+🔬 Scientific breakthrough: Consciousness-enhanced diabetes biomarker discovery
+💡 Novel biological insights discovered through consciousness simulation
+</code></pre></div></div>
+
+<h2 id="turbulence-language-basics">Turbulence Language Basics</h2>
+
+<p>The Turbulence language is your primary interface to consciousness simulation. Here are the essential concepts:</p>
+
+<h3 id="basic-syntax">Basic Syntax</h3>
+
+<h4 id="variable-declaration">Variable Declaration</h4>
+<pre><code class="language-turbulence">// Declare consciousness-enhanced variables
+item consciousness_runtime = initialize_consciousness_simulation()
+item quantum_data = quantum_enhanced_processing(raw_data)
+item consciousness_results = specialized_processing(quantum_data)
+</code></pre>
+
+<h4 id="function-definition">Function Definition</h4>
+<pre><code class="language-turbulence">// Define consciousness-enhanced functions
+funxn consciousness_analysis(data: MetabolomicData) -&gt; ConsciousnessResults:
+    print("🧠 Starting consciousness analysis")
+    
+    item quantum_processed = quantum_membrane.process(data)
+    item consciousness_enhanced = specialized_systems.process(quantum_processed)
+    
+    return consciousness_enhanced
+</code></pre>
+
+<h4 id="hypothesis-framework">Hypothesis Framework</h4>
+<pre><code class="language-turbulence">// Scientific hypothesis as executable framework
+hypothesis BiomedicaleDiscovery:
+    claim: "Consciousness simulation enhances biomarker discovery"
+    semantic_validation:
+        - biological_understanding: "pathway_dysregulation_semantics"
+        - clinical_understanding: "actionable_intervention_semantics"
+    success_criteria:
+        - sensitivity: &gt;= 0.85
+        - consciousness_enhancement: &gt;= 1.3
+    requires: "authentic_consciousness_simulation"
+</code></pre>
+
+<h4 id="proposition-motion-system">Proposition-Motion System</h4>
+<pre><code class="language-turbulence">// Scientific reasoning through propositions
+proposition ScientificValidation:
+    motion ConsciousnessEnhancement("Consciousness improves analysis quality")
+    motion BiologicalMeaning("Results have genuine biological significance")
+    
+    within experimental_results:
+        given consciousness_enhancement_factor &gt;= 1.3:
+            support ConsciousnessEnhancement with_confidence(0.95)
+            fullscreen.update_consciousness("enhancement_validated")
+</code></pre>
+
+<h3 id="four-file-system">Four-File System</h3>
+
+<p>Every Turbulence project uses four interconnected files:</p>
+
+<h4 id="1-trb---main-orchestration-script">1. <code class="language-plaintext highlighter-rouge">.trb</code> - Main Orchestration Script</h4>
+<pre><code class="language-turbulance">// main_experiment.trb
+import consciousness.zangalewa_runtime
+import consciousness.specialized_systems
+
+funxn main():
+    item consciousness = initialize_consciousness_simulation()
+    item results = consciousness_enhanced_analysis(consciousness)
+    return validate_consciousness_results(results)
+</code></pre>
+
+<h4 id="2-fs---real-time-consciousness-visualization">2. <code class="language-plaintext highlighter-rouge">.fs</code> - Real-Time Consciousness Visualization</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// main_experiment.fs
+consciousness_simulation_architecture:
+├── quantum_membrane_processing → proton_tunneling_active: true
+├── specialized_systems → consciousness_coherence: 0.94
+└── cross_modal_integration → emergence_level: 0.92
+</code></pre></div></div>
+
+<h4 id="3-ghd---external-resource-dependencies">3. <code class="language-plaintext highlighter-rouge">.ghd</code> - External Resource Dependencies</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// main_experiment.ghd
+consciousness_enhanced_dependencies:
+    external_databases:
+        - hmdb_consciousness_api: "consciousness_guided_queries"
+        - pubmed_consciousness_corpus: "semantic_literature_understanding"
+    
+    specialized_systems:
+        - autobahn_rag_system: "consciousness/autobahn/bio_metabolic"
+        - kwasa_kwasa_semantic: "consciousness/kwasa_kwasa/scientific_reasoning"
+</code></pre></div></div>
+
+<h4 id="4-hre---decision-logging-and-metacognitive-trail">4. <code class="language-plaintext highlighter-rouge">.hre</code> - Decision Logging and Metacognitive Trail</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// main_experiment.hre
+consciousness_session: "biomarker_discovery_2024"
+decisions:
+    consciousness_initialization:
+        timestamp: "2024-01-15T09:30:00Z"
+        decision: "initialize_full_consciousness_simulation"
+        reasoning: "Complex analysis requires genuine understanding"
+        confidence: 0.94
+</code></pre></div></div>
+
+<h2 id="understanding-the-output">Understanding the Output</h2>
+
+<h3 id="consciousness-simulation-phases">Consciousness Simulation Phases</h3>
+
+<p>The consciousness simulation proceeds through several key phases:</p>
+
+<h4 id="phase-1-consciousness-initialization">Phase 1: Consciousness Initialization</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🧠 INITIALIZING CONSCIOUSNESS SIMULATION
+✅ Quantum membrane computer: ACTIVE
+✅ Specialized systems: 8/8 ONLINE
+✅ Cross-modal integration: READY
+</code></pre></div></div>
+
+<h4 id="phase-2-quantum-enhanced-processing">Phase 2: Quantum-Enhanced Processing</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>⚛️ Quantum-enhanced data understanding
+Ion field stability: 0.947
+Fire-wavelength coupling: 650.3nm
+Consciousness substrate: ACTIVATED
+</code></pre></div></div>
+
+<h4 id="phase-3-specialized-system-processing">Phase 3: Specialized System Processing</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🎯 Specialized consciousness processing
+Autobahn probabilistic: 0.923
+Heihachi fire-emotion: 0.845
+Helicopter visual: 0.978
+Kwasa-Kwasa semantic: 0.934
+</code></pre></div></div>
+
+<h4 id="phase-4-cross-modal-integration">Phase 4: Cross-Modal Integration</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🌐 Cross-modal consciousness integration
+Visual-auditory binding: 0.923
+Semantic-emotional integration: 0.889
+Consciousness emergence: 0.934
+</code></pre></div></div>
+
+<h4 id="phase-5-scientific-validation">Phase 5: Scientific Validation</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🧠 Consciousness-validated scientific reasoning
+Hypothesis: VALIDATED ✅
+Enhancement factor: 1.47x
+Novel insights: 15 discovered
+Authenticity: CONFIRMED
+</code></pre></div></div>
+
+<h3 id="interpreting-consciousness-metrics">Interpreting Consciousness Metrics</h3>
+
+<h4 id="quantum-coherence-metrics">Quantum Coherence Metrics</h4>
+<ul>
+  <li><strong>Ion Field Stability</strong> (0.0-1.0): Collective quantum state maintenance</li>
+  <li><strong>Fire-Wavelength Coupling</strong> (600-700nm): Consciousness substrate activation</li>
+  <li><strong>Hardware Synchronization</strong> (0.0-1.0): Oscillatory phenomenon integration</li>
+</ul>
+
+<h4 id="consciousness-emergence-metrics">Consciousness Emergence Metrics</h4>
+<ul>
+  <li><strong>Cross-Modal Binding</strong> (0.0-1.0): Multi-sensory integration fidelity</li>
+  <li><strong>Semantic Understanding</strong> (0.0-1.0): Scientific comprehension depth</li>
+  <li><strong>Consciousness Level</strong> (0.0-1.0): Integrated awareness measure</li>
+  <li><strong>Authenticity Score</strong> (0.0-1.0): Genuine consciousness verification</li>
+</ul>
+
+<h4 id="enhancement-metrics">Enhancement Metrics</h4>
+<ul>
+  <li><strong>Enhancement Factor</strong> (&gt;1.0): Improvement over classical methods</li>
+  <li><strong>Novel Insights</strong> (count): Consciousness-generated discoveries</li>
+  <li><strong>Scientific Validation</strong> (boolean): Hypothesis confirmation</li>
+</ul>
+
+<div class="alert alert-info">
+<strong>Interpreting Results:</strong> Consciousness metrics above 0.85 indicate successful consciousness simulation. Enhancement factors above 1.3 demonstrate measurable improvement over classical approaches.
+</div>
+
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+
+<h3 id="installation-issues">Installation Issues</h3>
+
+<h4 id="rust-compilation-errors">Rust Compilation Errors</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Update Rust toolchain</span>
+rustup update nightly
+rustup default nightly
+
+<span class="c"># Clear build cache</span>
+cargo clean
+cargo build <span class="nt">--release</span>
+</code></pre></div></div>
+
+<h4 id="python-dependencies">Python Dependencies</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create clean virtual environment</span>
+python <span class="nt">-m</span> venv imhotep_env
+<span class="nb">source </span>imhotep_env/bin/activate
+pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
+
+<h4 id="gpu-issues">GPU Issues</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check CUDA installation</span>
+nvidia-smi
+nvcc <span class="nt">--version</span>
+
+<span class="c"># Verify GPU accessibility</span>
+python <span class="nt">-c</span> <span class="s2">"import torch; print(torch.cuda.is_available())"</span>
+</code></pre></div></div>
+
+<h3 id="runtime-issues">Runtime Issues</h3>
+
+<h4 id="low-consciousness-metrics">Low Consciousness Metrics</h4>
+<pre><code class="language-turbulence">// Increase consciousness simulation parameters
+item consciousness = initialize_consciousness_simulation([
+    quantum_enhancement: "maximum",
+    consciousness_threshold: 0.95,
+    cross_modal_integration: "enhanced"
+])
+</code></pre>
+
+<h4 id="memory-issues">Memory Issues</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Monitor memory usage</span>
+imhotep status <span class="nt">--memory</span>
+
+<span class="c"># Reduce simulation complexity</span>
+imhotep run experiment <span class="nt">--mode</span><span class="o">=</span>reduced_memory
+</code></pre></div></div>
+
+<h4 id="external-system-integration">External System Integration</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Test external system connectivity</span>
+imhotep test-external-systems
+
+<span class="c"># Reconfigure dependencies</span>
+imhotep configure <span class="nt">--reset-dependencies</span>
+</code></pre></div></div>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<h3 id="advanced-tutorials">Advanced Tutorials</h3>
+<ol>
+  <li><strong><a href="/imhotep/turbulence_syntax">Custom Consciousness Simulations</a></strong>: Create your own consciousness-enhanced experiments</li>
+  <li><strong><a href="/imhotep/neural_architecture">Quantum Processing Deep Dive</a></strong>: Understanding quantum membrane computation</li>
+  <li><strong><a href="/imhotep/transduction">Cross-Modal Integration</a></strong>: Advanced consciousness integration techniques</li>
+</ol>
+
+<h3 id="example-projects">Example Projects</h3>
+<ul>
+  <li><strong><a href="/imhotep/examples#metabolomic-diabetes">Metabolomic Analysis</a></strong>: Complete biomarker discovery workflow</li>
+  <li><strong><a href="/imhotep/examples#drug-discovery">Drug Discovery</a></strong>: Consciousness-enhanced molecular analysis</li>
+  <li><strong><a href="/imhotep/examples#systems-biology">Systems Biology</a></strong>: Complex biological network understanding</li>
+</ul>
+
+<h3 id="development-resources">Development Resources</h3>
+<ul>
+  <li><strong><a href="/imhotep/api-reference">API Reference</a></strong>: Complete technical documentation</li>
+  <li><strong><a href="https://github.com/organization/imhotep/blob/main/CONTRIBUTING.md">Contributing Guide</a></strong>: How to contribute to the framework</li>
+  <li><strong><a href="/imhotep/theory">Research Applications</a></strong>: Scientific foundation and research directions</li>
+</ul>
+
+<h3 id="community">Community</h3>
+<ul>
+  <li><strong><a href="https://github.com/fullscreen-triangle/imhotep/discussions">GitHub Discussions</a></strong>: Community support and discussions</li>
+  <li><strong><a href="https://github.com/fullscreen-triangle/imhotep/issues">Issue Tracker</a></strong>: Bug reports and feature requests</li>
+  <li><strong><a href="mailto:research@imhotep-framework.org">Research Collaboration</a></strong>: Academic partnerships</li>
+</ul>
+
+<div class="alert alert-success">
+<strong>Ready to Explore!</strong> You now have a working Imhotep installation and understanding of consciousness simulation basics. Start with the example projects and gradually build your own consciousness-enhanced experiments.
+</div>
+
+<hr />
+
+<p><strong>Next</strong>: <a href="/imhotep/turbulence_syntax">Turbulence Language Reference</a> - Complete guide to the consciousness simulation language</p>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4><i class="fas fa-brain"></i> Imhotep Framework</h4>
+            <p>High-Performance Specialized Neural Network Framework with Quantum-Enhanced Consciousness Simulation</p>
+            <div class="footer-links">
+              <a href="https://github.com/fullscreen-triangle/imhotep" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="/imhotep/feed.xml">
+                <i class="fas fa-rss"></i> RSS
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h4><i class="fas fa-book"></i> Documentation</h4>
+            <ul>
+              <li><a href="/imhotep/getting-started">Getting Started</a></li>
+              <li><a href="/imhotep/turbulence_syntax">Turbulence Syntax</a></li>
+              <li><a href="/imhotep/system">System Architecture</a></li>
+              <li><a href="/imhotep/examples">Examples</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4><i class="fas fa-cogs"></i> Framework</h4>
+            <ul>
+              <li><a href="/imhotep/neural_architecture">Neural Architecture</a></li>
+              <li><a href="/imhotep/neuron">Neuron Implementation</a></li>
+              <li><a href="/imhotep/theory">Theoretical Foundation</a></li>
+              <li><a href="/imhotep/api-reference">API Reference</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4><i class="fas fa-info-circle"></i> About</h4>
+            <p>Version 1.0.0 (2024)</p>
+            <p>Licensed under MIT</p>
+            <p>Built with ❤️ for scientific discovery</p>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2024 Imhotep Development Team. All rights reserved.</p>
+          <p>Quantum-Enhanced Consciousness Simulation for Scientific Discovery</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="/imhotep/assets/js/main.js"></script>
+</body>
+
+</html> 
