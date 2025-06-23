@@ -10,10 +10,22 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# GitHub Pages compatibility
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# SASS configuration for GitHub Pages
+sass:
+  style: compressed
+
 # Navigation menu
 header_pages:
   - index.md
   - getting-started.md
+  - neural_interface_guide.md
   - turbulence_syntax.md
   - turbulence_compiler.md
   - system.md
@@ -36,10 +48,6 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-
-# Disable SASS processing since we're using plain CSS
-sass:
-  style: compressed
 
 # Collections
 collections:

@@ -1,1 +1,1 @@
-Sitemap: http://localhost:4000/imhotep/sitemap.xml
+Sitemap: https://fullscreen-triangle.github.io/imhotep/sitemap.xml

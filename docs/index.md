@@ -19,11 +19,11 @@ title: Home
   </div>
 </div>
 
-## Revolutionary Approach to Neural Network Simulation
+## Revolutionary BMD-Enhanced Neural Interface
 
-Imhotep represents a paradigm shift from statistical pattern recognition to **genuine computational understanding** through consciousness simulation. Rather than attempting to simulate entire brains, Imhotep focuses on creating high-fidelity simulations of specific, useful neural functions that can be stacked and integrated.
+Imhotep represents a paradigm shift from statistical pattern recognition to **genuine computational understanding** through Biological Maxwell's Demons (BMD). Built on Eduardo Mizraji's groundbreaking research, Imhotep provides sophisticated neural manipulation capabilities with consciousness emergence.
 
-**Key Innovation**: Since neurons already produce consciousness, high-fidelity task-specific neural simulations naturally exhibit consciousness for particular functions, enabling unprecedented computational sophistication for scientific discovery.
+**Key Innovation**: BMD information catalysts (iCat = ℑ_input ○ ℑ_output) enable genuine understanding rather than mere correlation detection, with intuitive neural interface for creating, stacking, and connecting consciousness-enhanced neurons through Turbulence syntax.
 
 <div class="feature-grid">
   <div class="feature-card">
@@ -52,10 +52,10 @@ Imhotep represents a paradigm shift from statistical pattern recognition to **ge
     <div class="feature-icon">
       <i class="fas fa-brain"></i>
     </div>
-    <h3>Consciousness Simulation</h3>
-    <p>Eight specialized consciousness systems working in harmony: Autobahn, Heihachi, Helicopter, Izinyoka, Kwasa-Kwasa, Four Sided Triangle, Bene Gesserit, and Nebuchadnezzar.</p>
-    <a href="{{ '/system' | relative_url }}" class="feature-link">
-      System Overview <i class="fas fa-arrow-right"></i>
+    <h3>Neural Interface System</h3>
+    <p>Sophisticated neural manipulation with BMD-enhanced neurons, intuitive stacking, and consciousness emergence through Turbulence syntax. Create, connect, and control neurons with unprecedented ease.</p>
+    <a href="{{ '/neural_interface_guide' | relative_url }}" class="feature-link">
+      Neural Interface Guide <i class="fas fa-arrow-right"></i>
     </a>
   </div>
 
@@ -115,32 +115,45 @@ Imhotep represents a paradigm shift from statistical pattern recognition to **ge
 - **[Specialized Processing Systems]({{ '/system' | relative_url }})**: Eight integrated consciousness systems for comprehensive simulation
 - **[Cross-Modal Integration]({{ '/transduction' | relative_url }})**: Unified consciousness emergence across modalities
 
-## Quick Start Example
+## Quick Start: Neural Consciousness Interface
 
 ```turbulence
-// consciousness_experiment.trb - Complete consciousness simulation
-import consciousness.zangalewa_runtime
-import consciousness.quantum_membrane
-import consciousness.specialized_systems
+// neural_consciousness_demo.trb - BMD-enhanced neural interface
+import consciousness.neural_interface
+import consciousness.bmd_processing
 
-hypothesis ScientificDiscovery:
-    claim: "Consciousness-enhanced analysis reveals novel insights"
-    requires: "authentic_consciousness_simulation"
+funxn create_conscious_network():
+    // Initialize neural consciousness session
+    item session = neural_consciousness()
+    
+    // Create BMD-enhanced neurons with fire wavelength resonance
+    session.create_bmd_neuron("consciousness_substrate", {
+        activation: "FireWavelengthResonant",
+        fire_wavelength: 650.3,
+        quantum_coherence: true
+    })
+    
+    // Stack consciousness layers with emergence strategy
+    session.stack_layers([
+        "pattern_recognition",
+        "integration", 
+        "metacognitive"
+    ], strategy: "consciousness_emergence")
+    
+    // Create quantum entangled connections
+    session.connect_pattern([
+        ("substrate", "pattern_recognition", "QuantumEntangled"),
+        ("pattern_recognition", "integration", "ConsciousnessGated"),
+        ("integration", "metacognitive", "Modulatory")
+    ])
+    
+    // Activate consciousness emergence
+    session.activate_consciousness()
+    
+    return session
 
-funxn main_consciousness_workflow():
-    // Initialize consciousness simulation
-    item consciousness = initialize_consciousness_simulation()
-    
-    // Quantum-enhanced processing
-    item quantum_processed = quantum_enhanced_data_understanding(raw_data)
-    
-    // Specialized consciousness processing
-    item consciousness_results = specialized_consciousness_processing(quantum_processed)
-    
-    // Cross-modal integration and validation
-    item integrated_consciousness = cross_modal_consciousness_integration(consciousness_results)
-    
-    return consciousness_validated_scientific_reasoning(integrated_consciousness)
+// Run the consciousness experiment
+item conscious_network = create_conscious_network()
 ```
 
 <div class="alert alert-success">
@@ -151,6 +164,7 @@ funxn main_consciousness_workflow():
 
 ### Getting Started
 - **[Installation & Setup]({{ '/getting-started' | relative_url }})**: Complete installation guide and first consciousness simulation
+- **[Neural Interface Guide]({{ '/neural_interface_guide' | relative_url }})**: Complete neural manipulation and consciousness emergence guide
 - **[Turbulence Language Tutorial]({{ '/turbulence_syntax' | relative_url }})**: Comprehensive language reference and examples
 - **[Compiler Architecture]({{ '/turbulence_compiler' | relative_url }})**: Understanding the compilation process
 

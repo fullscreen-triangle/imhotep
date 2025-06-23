@@ -8,6 +8,9 @@ pub mod generator;
 pub mod orchestrator;
 pub mod executor;
 pub mod four_file_system;
+pub mod neural_interface;
+pub mod neural_syntax;
+pub mod neural_executor;
 
 use std::collections::HashMap;
 use std::path::Path;
@@ -32,19 +35,24 @@ pub struct TurbulenceEngine {
     
     /// Execution engine
     pub executor: executor::TurbulenceExecutionEngine,
+    
+    /// Neural interface for sophisticated neural operations
+    pub neural_interface: neural_interface::NeuralInterface,
 }
 
 impl TurbulenceEngine {
     /// Initialize new Turbulence engine
-    pub fn new() -> Self {
-        Self {
+    pub fn new() -> Result<Self, TurbulenceError> {
+        Ok(Self {
             parser: parser::ScientificMethodologyParser::new(),
             analyzer: analyzer::ConsciousnessIntegrationAnalyzer::new(),
             generator: generator::InternalSystemCodeGenerator::new(),
             orchestrator: orchestrator::ExternalSystemOrchestrator::new(),
             file_coordinator: four_file_system::FourFileSystemCoordinator::new(),
             executor: executor::TurbulenceExecutionEngine::new(),
-        }
+            neural_interface: neural_interface::NeuralInterface::new()
+                .map_err(|e| TurbulenceError::ExecutionError(format!("Neural interface error: {:?}", e)))?,
+        })
     }
     
     /// Compile complete Turbulence experiment
@@ -304,6 +312,41 @@ impl TurbulenceEngine {
                 })
             },
         }
+    }
+    
+    /// Execute neural operations with turbulence syntax
+    pub async fn execute_neural_operations(&mut self, 
+        neural_syntax: &str) -> Result<Vec<neural_syntax::NeuralTurbulenceOperation>, TurbulenceError> {
+        let syntax_processor = neural_syntax::NeuralTurbulenceSyntax::default();
+        
+        syntax_processor.parse_neural_syntax(neural_syntax)
+            .map_err(|e| TurbulenceError::ParseError(format!("Neural syntax error: {:?}", e)))
+    }
+    
+    /// Create neural session with consciousness integration
+    pub async fn create_consciousness_neural_session(&mut self) -> Result<String, TurbulenceError> {
+        self.neural_interface.create_neural_session().await
+            .map_err(|e| TurbulenceError::ExecutionError(format!("Session creation error: {:?}", e)))
+    }
+    
+    /// Execute BMD neuron creation
+    pub async fn create_bmd_neuron(&mut self, 
+        session_id: &str,
+        neuron_id: String,
+        activation_function: neural_interface::ActivationFunction,
+        bmd_enhancement: f64) -> Result<neural_interface::BMDNeuron, TurbulenceError> {
+        
+        self.neural_interface.create_bmd_neuron(neuron_id, activation_function, bmd_enhancement).await
+            .map_err(|e| TurbulenceError::ExecutionError(format!("BMD neuron creation error: {:?}", e)))
+    }
+    
+    /// Execute neural layer stacking
+    pub async fn stack_consciousness_layers(&mut self,
+        layer_configs: Vec<neural_interface::LayerConfiguration>,
+        stacking_strategy: neural_interface::StackingStrategy) -> Result<Vec<String>, TurbulenceError> {
+        
+        self.neural_interface.stack_neural_layers(layer_configs, stacking_strategy).await
+            .map_err(|e| TurbulenceError::ExecutionError(format!("Layer stacking error: {:?}", e)))
     }
 }
 
@@ -1065,6 +1108,6 @@ pub struct ExecutionReport;
 
 impl Default for TurbulenceEngine {
     fn default() -> Self {
-        Self::new()
+        Self::new().unwrap()
     }
 } 
