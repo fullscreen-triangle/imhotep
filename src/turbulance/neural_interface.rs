@@ -9,6 +9,17 @@ use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use tokio;
 
+/// Extension trait for f64 to add sigmoid activation function
+trait SigmoidActivation {
+    fn sigmoid(self) -> Self;
+}
+
+impl SigmoidActivation for f64 {
+    fn sigmoid(self) -> Self {
+        1.0 / (1.0 + (-self).exp())
+    }
+}
+
 /// Neural interface engine for sophisticated neural operations
 pub struct NeuralInterface {
     /// BMD-enhanced neural processor
@@ -31,6 +42,12 @@ pub struct NeuralInterface {
     
     /// Active neural sessions
     pub active_sessions: HashMap<String, NeuralSession>,
+    
+    /// Direct neuron access for self-awareness systems
+    pub neurons: HashMap<String, BMDNeuron>,
+    
+    /// Direct connection access for self-awareness feedback
+    pub connections: Vec<SynapticConnection>,
 }
 
 /// Neural topology manager for complex neural architectures
@@ -130,6 +147,27 @@ pub struct BMDNeuron {
     
     /// Consciousness contribution
     pub consciousness_contribution: f64,
+    
+    /// Neural subsystem type
+    pub subsystem: NeuralSubsystem,
+    
+    /// Fire wavelength for quantum resonance
+    pub fire_wavelength: Option<f64>,
+    
+    /// Quantum coherence enabled
+    pub quantum_coherence: bool,
+    
+    /// BMD enhancement active
+    pub bmd_enhancement: bool,
+    
+    /// Consciousness gating enabled
+    pub consciousness_gated: bool,
+    
+    /// Activation threshold
+    pub threshold: f64,
+    
+    /// Current activation value
+    pub current_activation: f64,
 }
 
 /// Neural graph for topology representation
@@ -270,6 +308,18 @@ pub enum ActivationFunction {
     Sigmoid { steepness: f64 },
     ReLU,
     Tanh,
+    
+    // Four-file system specialized activations
+    MetacognitiveMonitor(f64),      // "What am I thinking and why?"
+    SystemStateTracker(f64),        // "What is my current state?"
+    KnowledgeNetworkManager(f64),   // "What knowledge am I accessing?"
+    DecisionTrailLogger(f64),       // "What decisions am I making?"
+    
+    // Advanced self-awareness activations
+    SelfReflectionMonitor(f64),     // Deep introspective awareness
+    ThoughtQualityAssessor(f64),    // Evaluates reasoning quality
+    KnowledgeStateAuditor(f64),     // Tracks knowledge gaps/strengths
+    ReasoningChainTracker(f64),     // Follows logical progression
 }
 
 /// Neural membrane properties
@@ -320,6 +370,8 @@ impl NeuralInterface {
             quantum_enhancer: QuantumNeuralEnhancer::new()?,
             manipulation_toolkit: NeuralManipulationToolkit::new()?,
             active_sessions: HashMap::new(),
+            neurons: HashMap::new(),
+            connections: Vec::new(),
         })
     }
     
@@ -548,6 +600,15 @@ impl Default for NeuralInterface {
     }
 }
 
+/// Error type for processing operations
+#[derive(Debug)]
+pub enum ProcessingError {
+    InvalidInput(String),
+    NeuronNotFound(String),
+    ConnectionFailed(String),
+    ProcessingFailed(String),
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum NeuralSubsystem {
     // Core processing neurons
@@ -614,81 +675,148 @@ impl BMDNeuron {
     pub fn create_metacognitive_monitor(id: String, config: SelfAwarenessConfig) -> Self {
         Self {
             id,
+            bmd_core: BiologicalMaxwellDemon::new_default(),
+            membrane_properties: NeuralMembraneProperties {
+                resting_potential: -70.0,
+                threshold_potential: -55.0,
+                capacitance: 1.0,
+                bmd_enhancement_factor: 0.9,
+            },
+            synaptic_connections: Vec::new(),
             activation_function: ActivationFunction::MetacognitiveMonitor(config.metacognitive_depth),
-            threshold: config.self_reflection_threshold,
-            current_activation: 0.0,
-            fire_wavelength: Some(650.3), // Fire wavelength for quantum coherence
+            activation_level: 0.0,
+            consciousness_contribution: 0.85,
+            subsystem: NeuralSubsystem::MetacognitiveMonitor,
+            fire_wavelength: Some(650.3),
             quantum_coherence: true,
             bmd_enhancement: true,
             consciousness_gated: true,
-            subsystem: NeuralSubsystem::MetacognitiveMonitor,
+            threshold: config.self_reflection_threshold,
+            current_activation: 0.0,
         }
     }
     
     pub fn create_system_state_tracker(id: String) -> Self {
         Self {
             id,
+            bmd_core: BiologicalMaxwellDemon::new_default(),
+            membrane_properties: NeuralMembraneProperties {
+                resting_potential: -70.0,
+                threshold_potential: -50.0,
+                capacitance: 1.2,
+                bmd_enhancement_factor: 0.95,
+            },
+            synaptic_connections: Vec::new(),
             activation_function: ActivationFunction::SystemStateTracker(0.9),
-            threshold: 0.6,
-            current_activation: 0.0,
+            activation_level: 0.0,
+            consciousness_contribution: 0.7,
+            subsystem: NeuralSubsystem::SystemStateTracker,
             fire_wavelength: Some(650.3),
             quantum_coherence: true,
             bmd_enhancement: true,
-            consciousness_gated: false, // Always monitoring
-            subsystem: NeuralSubsystem::SystemStateTracker,
+            consciousness_gated: false,
+            threshold: 0.6,
+            current_activation: 0.0,
         }
     }
     
     pub fn create_knowledge_network_manager(id: String) -> Self {
         Self {
             id,
+            bmd_core: BiologicalMaxwellDemon::new_default(),
+            membrane_properties: NeuralMembraneProperties {
+                resting_potential: -65.0,
+                threshold_potential: -52.0,
+                capacitance: 1.1,
+                bmd_enhancement_factor: 0.85,
+            },
+            synaptic_connections: Vec::new(),
             activation_function: ActivationFunction::KnowledgeNetworkManager(0.85),
-            threshold: 0.7,
-            current_activation: 0.0,
+            activation_level: 0.0,
+            consciousness_contribution: 0.8,
+            subsystem: NeuralSubsystem::KnowledgeNetworkManager,
             fire_wavelength: Some(650.3),
             quantum_coherence: true,
             bmd_enhancement: true,
             consciousness_gated: true,
-            subsystem: NeuralSubsystem::KnowledgeNetworkManager,
+            threshold: 0.7,
+            current_activation: 0.0,
         }
     }
     
     pub fn create_decision_trail_logger(id: String, config: SelfAwarenessConfig) -> Self {
         Self {
             id,
+            bmd_core: BiologicalMaxwellDemon::new_default(),
+            membrane_properties: NeuralMembraneProperties {
+                resting_potential: -68.0,
+                threshold_potential: -53.0,
+                capacitance: 1.0,
+                bmd_enhancement_factor: 0.88,
+            },
+            synaptic_connections: Vec::new(),
             activation_function: ActivationFunction::DecisionTrailLogger(config.metacognitive_depth),
-            threshold: 0.5, // Log all significant decisions
-            current_activation: 0.0,
+            activation_level: 0.0,
+            consciousness_contribution: 0.9,
+            subsystem: NeuralSubsystem::DecisionTrailLogger,
             fire_wavelength: Some(650.3),
             quantum_coherence: true,
             bmd_enhancement: true,
             consciousness_gated: true,
-            subsystem: NeuralSubsystem::DecisionTrailLogger,
+            threshold: 0.5,
+            current_activation: 0.0,
         }
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub enum ActivationFunction {
-    // ... existing activation functions ...
-    
-    // Four-file system specialized activations
-    MetacognitiveMonitor(f64),      // "What am I thinking and why?"
-    SystemStateTracker(f64),        // "What is my current state?"
-    KnowledgeNetworkManager(f64),   // "What knowledge am I accessing?"
-    DecisionTrailLogger(f64),       // "What decisions am I making?"
-    
-    // Advanced self-awareness activations
-    SelfReflectionMonitor(f64),     // Deep introspective awareness
-    ThoughtQualityAssessor(f64),    // Evaluates reasoning quality
-    KnowledgeStateAuditor(f64),     // Tracks knowledge gaps/strengths
-    ReasoningChainTracker(f64),     // Follows logical progression
-}
+
 
 impl ActivationFunction {
     pub fn activate(&self, input: f64, context: &ProcessingContext) -> Result<f64, ProcessingError> {
         match self {
-            // ... existing activation implementations ...
+            // Existing activations
+            ActivationFunction::BMDCatalytic { threshold, amplification } => {
+                if input > *threshold {
+                    Ok(input * amplification)
+                } else {
+                    Ok(0.0)
+                }
+            }
+            
+            ActivationFunction::QuantumCoherent { coherence_threshold } => {
+                let coherence_factor = context.quantum_coherence;
+                if coherence_factor > *coherence_threshold {
+                    Ok(input * coherence_factor)
+                } else {
+                    Ok(input * 0.5)
+                }
+            }
+            
+            ActivationFunction::ConsciousnessGated { consciousness_threshold } => {
+                let consciousness_factor = context.consciousness_level;
+                if consciousness_factor > *consciousness_threshold {
+                    Ok(input * consciousness_factor)
+                } else {
+                    Ok(0.0)
+                }
+            }
+            
+            ActivationFunction::FireWavelengthResonant { wavelength: _, resonance } => {
+                let fire_factor = context.fire_wavelength_resonance;
+                Ok(input * resonance * fire_factor)
+            }
+            
+            ActivationFunction::Sigmoid { steepness } => {
+                Ok((input * steepness).sigmoid())
+            }
+            
+            ActivationFunction::ReLU => {
+                Ok(input.max(0.0))
+            }
+            
+            ActivationFunction::Tanh => {
+                Ok(input.tanh())
+            }
             
             ActivationFunction::MetacognitiveMonitor(depth) => {
                 // Self-reflective activation: "What am I thinking about?"
@@ -842,13 +970,13 @@ impl NeuralInterface {
             subsystem: NeuralSubsystem::ThoughtQualityAssessor,
         };
         
-        // Add all neurons to the interface
-        self.topology_manager.neural_graph.neurons.insert(metacognitive_monitor.id.clone(), metacognitive_monitor);
-        self.topology_manager.neural_graph.neurons.insert(system_tracker.id.clone(), system_tracker);
-        self.topology_manager.neural_graph.neurons.insert(knowledge_manager.id.clone(), knowledge_manager);
-        self.topology_manager.neural_graph.neurons.insert(decision_logger.id.clone(), decision_logger);
-        self.topology_manager.neural_graph.neurons.insert(self_reflection.id.clone(), self_reflection);
-        self.topology_manager.neural_graph.neurons.insert(thought_assessor.id.clone(), thought_assessor);
+                 // Add all neurons to the interface
+         self.neurons.insert(metacognitive_monitor.id.clone(), metacognitive_monitor);
+         self.neurons.insert(system_tracker.id.clone(), system_tracker);
+         self.neurons.insert(knowledge_manager.id.clone(), knowledge_manager);
+         self.neurons.insert(decision_logger.id.clone(), decision_logger);
+         self.neurons.insert(self_reflection.id.clone(), self_reflection);
+         self.neurons.insert(thought_assessor.id.clone(), thought_assessor);
         
         // Create self-awareness connection patterns
         self.create_self_awareness_connections(base_id)?;
@@ -861,55 +989,61 @@ impl NeuralInterface {
         let connections = vec![
             // Self-reflection monitors thought quality
             SynapticConnection {
-                from: format!("{}_self_reflection", base_id),
-                to: format!("{}_thought_quality", base_id),
+                id: format!("{}_self_reflection_to_thought_quality", base_id),
+                source_neuron: format!("{}_self_reflection", base_id),
+                target_neuron: format!("{}_thought_quality", base_id),
                 weight: 0.8,
                 connection_type: ConnectionType::ConsciousnessGated,
-                delay: 0.0,
+                bmd_gating_strength: 0.85,
             },
             // Thought quality influences decision logging
             SynapticConnection {
-                from: format!("{}_thought_quality", base_id),
-                to: format!("{}_decision_trail", base_id),
+                id: format!("{}_thought_quality_to_decision_trail", base_id),
+                source_neuron: format!("{}_thought_quality", base_id),
+                target_neuron: format!("{}_decision_trail", base_id),
                 weight: 0.9,
                 connection_type: ConnectionType::Excitatory,
-                delay: 0.0,
+                bmd_gating_strength: 0.9,
             },
             // Decision trail informs metacognitive monitoring
             SynapticConnection {
-                from: format!("{}_decision_trail", base_id),
-                to: format!("{}_metacognitive", base_id),
+                id: format!("{}_decision_trail_to_metacognitive", base_id),
+                source_neuron: format!("{}_decision_trail", base_id),
+                target_neuron: format!("{}_metacognitive", base_id),
                 weight: 0.85,
                 connection_type: ConnectionType::Modulatory,
-                delay: 0.0,
+                bmd_gating_strength: 0.8,
             },
             // System state influences all awareness systems
             SynapticConnection {
-                from: format!("{}_system_state", base_id),
-                to: format!("{}_metacognitive", base_id),
+                id: format!("{}_system_state_to_metacognitive", base_id),
+                source_neuron: format!("{}_system_state", base_id),
+                target_neuron: format!("{}_metacognitive", base_id),
                 weight: 0.7,
                 connection_type: ConnectionType::Modulatory,
-                delay: 0.0,
+                bmd_gating_strength: 0.75,
             },
             // Knowledge network informs self-reflection
             SynapticConnection {
-                from: format!("{}_knowledge_net", base_id),
-                to: format!("{}_self_reflection", base_id),
+                id: format!("{}_knowledge_net_to_self_reflection", base_id),
+                source_neuron: format!("{}_knowledge_net", base_id),
+                target_neuron: format!("{}_self_reflection", base_id),
                 weight: 0.75,
                 connection_type: ConnectionType::QuantumEntangled,
-                delay: 0.0,
+                bmd_gating_strength: 0.9,
             },
             // Metacognitive monitor influences thought quality assessment
             SynapticConnection {
-                from: format!("{}_metacognitive", base_id),
-                to: format!("{}_thought_quality", base_id),
+                id: format!("{}_metacognitive_to_thought_quality", base_id),
+                source_neuron: format!("{}_metacognitive", base_id),
+                target_neuron: format!("{}_thought_quality", base_id),
                 weight: 0.8,
                 connection_type: ConnectionType::ConsciousnessGated,
-                delay: 0.0,
+                bmd_gating_strength: 0.85,
             },
         ];
         
-        self.topology_manager.connections.extend(connections);
+                 self.connections.extend(connections);
         Ok(())
     }
     
@@ -920,14 +1054,14 @@ impl NeuralInterface {
         let reflection_id = format!("{}_self_reflection", base_id);
         let quality_id = format!("{}_thought_quality", base_id);
         
-        let metacognitive_neuron = self.topology_manager.neural_graph.neurons.get(&metacognitive_id)
-            .ok_or(ProcessingError::NeuronNotFound(metacognitive_id))?;
-        
-        let reflection_neuron = self.topology_manager.neural_graph.neurons.get(&reflection_id)
-            .ok_or(ProcessingError::NeuronNotFound(reflection_id))?;
-            
-        let quality_neuron = self.topology_manager.neural_graph.neurons.get(&quality_id)
-            .ok_or(ProcessingError::NeuronNotFound(quality_id))?;
+                 let metacognitive_neuron = self.neurons.get(&metacognitive_id)
+             .ok_or(ProcessingError::NeuronNotFound(metacognitive_id))?;
+         
+         let reflection_neuron = self.neurons.get(&reflection_id)
+             .ok_or(ProcessingError::NeuronNotFound(reflection_id))?;
+             
+         let quality_neuron = self.neurons.get(&quality_id)
+             .ok_or(ProcessingError::NeuronNotFound(quality_id))?;
         
         Ok(MetacognitiveState {
             current_thought_focus: format!("Metacognitive activation: {:.3}", metacognitive_neuron.current_activation),

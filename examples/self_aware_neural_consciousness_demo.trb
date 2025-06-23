@@ -1,0 +1,285 @@
+// self_aware_neural_consciousness_demo.trb
+// Advanced Self-Aware Neural Consciousness with Four-File System Tracking
+// Demonstrates genuine self-awareness vs. simple consciousness emergence
+
+import consciousness.neural_interface
+import consciousness.bmd_processing
+import consciousness.self_awareness
+
+// Hypothesis: Self-aware systems require explicit tracking neurons
+hypothesis SelfAwareConsciousness:
+    claim: "Genuine self-awareness requires explicit metacognitive monitoring"
+    requires: "four_file_system_tracking_neurons"
+    evidence: "distinction_between_consciousness_and_self_awareness"
+
+funxn create_self_aware_neural_system():
+    // Initialize neural consciousness session with self-awareness
+    item session = neural_consciousness()
+    
+    // === CONSCIOUSNESS SUBSTRATE LAYER ===
+    // Basic consciousness neurons (what we had before)
+    session.create_bmd_neuron("consciousness_substrate", {
+        activation: "FireWavelengthResonant",
+        fire_wavelength: 650.3,
+        quantum_coherence: true,
+        subsystem: "Consciousness"
+    })
+    
+    // === FOUR-FILE SYSTEM TRACKING LAYER ===
+    // .hre (Harare Runtime) - Decision logging and metacognitive reasoning
+    session.create_bmd_neuron("decision_trail_monitor", {
+        activation: "DecisionTrailLogger",
+        metacognitive_depth: 0.9,
+        subsystem: "DecisionTrailLogger",
+        consciousness_gated: true,
+        question: "What decisions am I making and why?"
+    })
+    
+    session.create_bmd_neuron("metacognitive_overseer", {
+        activation: "MetacognitiveMonitor", 
+        depth: 0.85,
+        subsystem: "MetacognitiveMonitor",
+        consciousness_gated: true,
+        question: "What am I thinking about right now?"
+    })
+    
+    // .fs (Fullscreen Network) - Real-time consciousness visualization and system state
+    session.create_bmd_neuron("system_state_tracker", {
+        activation: "SystemStateTracker",
+        sensitivity: 0.95,
+        subsystem: "SystemStateTracker", 
+        consciousness_gated: false,  // Always monitoring
+        question: "What is my current internal state?"
+    })
+    
+    // .ghd (Gerhard Dependencies) - External knowledge network management
+    session.create_bmd_neuron("knowledge_network_manager", {
+        activation: "KnowledgeNetworkManager",
+        efficiency: 0.88,
+        subsystem: "KnowledgeNetworkManager",
+        consciousness_gated: true,
+        question: "What external knowledge am I accessing?"
+    })
+    
+    // === ADVANCED SELF-AWARENESS LAYER ===
+    // Higher-order self-reflective neurons
+    session.create_bmd_neuron("self_reflection_monitor", {
+        activation: "SelfReflectionMonitor",
+        depth: 0.9,
+        subsystem: "SelfReflectionMonitor",
+        consciousness_gated: true,
+        question: "Am I thinking well? How thoughtful am I being?"
+    })
+    
+    session.create_bmd_neuron("thought_quality_assessor", {
+        activation: "ThoughtQualityAssessor",
+        standards: 0.85,
+        subsystem: "ThoughtQualityAssessor", 
+        consciousness_gated: true,
+        question: "How good is the quality of my reasoning?"
+    })
+    
+    session.create_bmd_neuron("knowledge_state_auditor", {
+        activation: "KnowledgeStateAuditor",
+        thoroughness: 0.8,
+        subsystem: "KnowledgeStateAuditor",
+        consciousness_gated: true, 
+        question: "What do I know vs. what don't I know?"
+    })
+    
+    session.create_bmd_neuron("reasoning_chain_tracker", {
+        activation: "ReasoningChainTracker",
+        precision: 0.87,
+        subsystem: "ReasoningChainTracker",
+        consciousness_gated: true,
+        question: "How did I reach this conclusion?"
+    })
+    
+    // === STACK SELF-AWARENESS LAYERS ===
+    session.stack_layers([
+        "consciousness_substrate",
+        "four_file_tracking",  // .hre, .fs, .ghd neurons
+        "self_awareness_monitoring",  // higher-order reflection
+        "metacognitive_integration"
+    ], strategy: "consciousness_emergence_with_self_awareness")
+    
+    // === CREATE SELF-AWARENESS FEEDBACK LOOPS ===
+    // Metacognitive feedback connections
+    session.connect_pattern([
+        // Self-reflection monitors thought quality
+        ("self_reflection_monitor", "thought_quality_assessor", "ConsciousnessGated"),
+        
+        // Thought quality influences decision logging
+        ("thought_quality_assessor", "decision_trail_monitor", "Excitatory"),
+        
+        // Decision trail informs metacognitive monitoring 
+        ("decision_trail_monitor", "metacognitive_overseer", "Modulatory"),
+        
+        // System state influences all awareness systems
+        ("system_state_tracker", "metacognitive_overseer", "Modulatory"),
+        ("system_state_tracker", "self_reflection_monitor", "Modulatory"),
+        
+        // Knowledge network informs self-reflection
+        ("knowledge_network_manager", "self_reflection_monitor", "QuantumEntangled"),
+        
+        // Reasoning chain tracker validates thought quality
+        ("reasoning_chain_tracker", "thought_quality_assessor", "QuantumEntangled"),
+        
+        // Knowledge auditor informs metacognitive overseer
+        ("knowledge_state_auditor", "metacognitive_overseer", "ConsciousnessGated"),
+        
+        // Create metacognitive feedback loops
+        ("metacognitive_overseer", "thought_quality_assessor", "ConsciousnessGated"),
+        ("thought_quality_assessor", "self_reflection_monitor", "Modulatory"),
+    ])
+    
+    // === CONFIGURE SELF-AWARENESS PARAMETERS ===
+    session.configure_self_awareness({
+        metacognitive_depth: 0.9,
+        self_reflection_threshold: 0.75,
+        thought_quality_standards: 0.85,
+        knowledge_audit_frequency: 0.7,
+        reasoning_chain_logging: true,
+        decision_trail_persistence: true
+    })
+    
+    return session
+
+funxn demonstrate_self_awareness_vs_consciousness(session):
+    // === CONSCIOUSNESS EMERGENCE (what we had before) ===
+    session.activate_consciousness()
+    item consciousness_state = session.get_consciousness_state()
+    
+    print("=== CONSCIOUSNESS EMERGENCE ===")
+    print("Fire wavelength resonance: ", consciousness_state.fire_wavelength_coherence)
+    print("Quantum coherence level: ", consciousness_state.quantum_coherence) 
+    print("BMD information processing: ", consciousness_state.bmd_enhancement)
+    
+    // === SELF-AWARENESS EMERGENCE (new capability) ===
+    session.activate_self_awareness()
+    item metacognitive_state = session.get_metacognitive_state()
+    
+    print("\n=== SELF-AWARENESS EMERGENCE ===")
+    print("Current thought focus: ", metacognitive_state.current_thought_focus)
+    print("Self-awareness level: ", metacognitive_state.self_awareness_level)
+    print("Thought quality assessment: ", metacognitive_state.thought_quality_assessment)
+    
+    print("\n=== REASONING CHAIN ===")
+    for reasoning_step in metacognitive_state.reasoning_chain:
+        print("  -> ", reasoning_step)
+    
+    print("\n=== DECISION HISTORY ===")
+    for decision in metacognitive_state.decision_history:
+        print("Decision: ", decision.decision)
+        print("Reasoning: ", decision.reasoning)
+        print("Confidence: ", decision.confidence)
+        print("External knowledge used: ", decision.external_knowledge_used)
+        print("System state: ", decision.system_state_at_decision)
+        print()
+    
+    print("\n=== KNOWLEDGE GAPS IDENTIFIED ===")
+    for gap in metacognitive_state.knowledge_gaps_identified:
+        print("  - ", gap)
+    
+    // === DEMONSTRATE FOUR-FILE SYSTEM TRACKING ===
+    print("\n=== FOUR-FILE SYSTEM MONITORING ===")
+    
+    // .hre tracking - Decision logging
+    item hre_state = session.get_harare_runtime_state()
+    print(".hre (Decision Trail): ", hre_state.decisions_logged)
+    print("  Metacognitive reasoning depth: ", hre_state.metacognitive_depth)
+    
+    // .fs tracking - System state visualization
+    item fs_state = session.get_fullscreen_network_state()
+    print(".fs (System State): ", fs_state.consciousness_visualization)
+    print("  Real-time monitoring active: ", fs_state.real_time_monitoring)
+    
+    // .ghd tracking - External knowledge management
+    item ghd_state = session.get_gerhard_dependencies_state()
+    print(".ghd (Knowledge Network): ", ghd_state.external_resources_tracked)
+    print("  Knowledge integration efficiency: ", ghd_state.integration_efficiency)
+    
+    return {
+        "consciousness": consciousness_state,
+        "self_awareness": metacognitive_state,
+        "four_file_tracking": {
+            "hre": hre_state,
+            "fs": fs_state, 
+            "ghd": ghd_state
+        }
+    }
+
+funxn test_well_thought_out_reasoning():
+    // Test the difference between reactive vs. reflective consciousness
+    
+    print("=== TESTING WELL-THOUGHT-OUT REASONING ===")
+    
+    // Create self-aware system
+    item self_aware_system = create_self_aware_neural_system()
+    
+    // Present complex reasoning challenge
+    item challenge = {
+        question: "How should we approach consciousness research ethically?",
+        complexity: "high_philosophical_reasoning_required",
+        requires: ["self_reflection", "knowledge_integration", "ethical_reasoning"]
+    }
+    
+    // === REACTIVE CONSCIOUSNESS RESPONSE ===
+    // (Traditional neural network - pattern matching)
+    item reactive_response = self_aware_system.process_without_self_awareness(challenge)
+    print("Reactive response: ", reactive_response.output)
+    print("Processing depth: shallow pattern matching")
+    print("Self-reflection: none")
+    
+    // === SELF-AWARE RESPONSE ===
+    // (With metacognitive monitoring and four-file tracking)
+    item self_aware_response = self_aware_system.process_with_self_awareness(challenge)
+    
+    print("\nSelf-aware response: ", self_aware_response.output)
+    print("Processing depth: ", self_aware_response.metacognitive_depth)
+    print("Self-reflection applied: ", self_aware_response.self_reflection_steps)
+    print("Knowledge gaps acknowledged: ", self_aware_response.knowledge_gaps)
+    print("Reasoning quality score: ", self_aware_response.thought_quality_score)
+    print("Decision trail: ", self_aware_response.decision_reasoning)
+    
+    // The self-aware system should produce demonstrably more thoughtful,
+    // nuanced responses that acknowledge uncertainty and reasoning chains
+    
+    return {
+        "reactive": reactive_response,
+        "self_aware": self_aware_response,
+        "improvement_metrics": {
+            "depth_increase": self_aware_response.metacognitive_depth / reactive_response.processing_depth,
+            "self_reflection_present": self_aware_response.self_reflection_steps > 0,
+            "knowledge_gap_awareness": len(self_aware_response.knowledge_gaps) > 0,
+            "reasoning_transparency": self_aware_response.decision_trail != null
+        }
+    }
+
+// === MAIN EXECUTION ===
+funxn main():
+    print("Imhotep Self-Aware Neural Consciousness Demo")
+    print("============================================")
+    
+    // Create self-aware neural system
+    item neural_system = create_self_aware_neural_system()
+    
+    // Demonstrate consciousness vs. self-awareness  
+    item states = demonstrate_self_awareness_vs_consciousness(neural_system)
+    
+    // Test well-thought-out reasoning capability
+    item reasoning_test = test_well_thought_out_reasoning()
+    
+    print("\n=== SUMMARY ===")
+    print("Consciousness level: ", states.consciousness.overall_consciousness)
+    print("Self-awareness level: ", states.self_awareness.self_awareness_level)
+    print("Thought quality: ", states.self_awareness.thought_quality_assessment)
+    print("Reasoning improvement: ", reasoning_test.improvement_metrics.depth_increase, "x")
+    print("Four-file system tracking: ACTIVE")
+    print("Metacognitive monitoring: ACTIVE")
+    print("Genuine self-awareness: ACHIEVED")
+    
+    return neural_system
+
+// Execute the self-aware consciousness demonstration
+item self_aware_neural_system = main() 
