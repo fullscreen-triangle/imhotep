@@ -9,13 +9,13 @@ pub mod enaqt;
 pub mod fire_wavelength;
 pub mod ion_field;
 pub mod membrane;
+pub mod optimization;
 
 use nalgebra::{Complex, DMatrix, DVector};
 use num_complex::Complex64;
-use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use crate::config::{QuantumEnhancementLevel, QuantumParameters};
+// Note: QuantumEnhancementLevel and QuantumParameters are defined in this module
 use crate::error::{ImhotepError, ImhotepResult};
 
 pub use coherence::CoherenceManager;
@@ -23,9 +23,10 @@ pub use enaqt::ENAQTProcessor;
 pub use fire_wavelength::FireWavelengthCoupler;
 pub use ion_field::IonFieldProcessor;
 pub use membrane::QuantumMembraneComputer;
+pub use optimization::QuantumOptimizer;
 
 /// Quantum enhancement levels for consciousness simulation
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum QuantumEnhancementLevel {
     /// Minimal quantum processing
     Minimal,
@@ -38,7 +39,7 @@ pub enum QuantumEnhancementLevel {
 }
 
 /// Quantum processing parameters
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct QuantumParameters {
     /// Ion field processing intensity (0.0 - 1.0)
     pub ion_field_intensity: f64,
@@ -66,7 +67,7 @@ pub struct QuantumParameters {
 }
 
 /// Quantum coherence metrics
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct QuantumCoherenceMetrics {
     /// Coherence time (nanoseconds)
     pub coherence_time: f64,

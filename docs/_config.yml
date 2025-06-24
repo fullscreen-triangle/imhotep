@@ -42,12 +42,7 @@ email: contact@imhotep-framework.org
 github_username: fullscreen-triangle
 repository: fullscreen-triangle/imhotep
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+# Build settings (removed duplicate markdown/kramdown settings)
 
 # Collections
 collections:
