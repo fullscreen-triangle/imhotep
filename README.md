@@ -34,14 +34,14 @@ Unlike traditional neural networks that perform statistical pattern matching, Im
 
 ### 🎯 Specialized Consciousness Systems
 Eight integrated consciousness modules working in harmony:
-- **Autobahn**: High-speed information processing highways
-- **Heihachi**: Combat-ready decision making systems  
-- **Helicopter**: Aerial perspective and overview processing
-- **Izinyoka**: Serpentine pattern recognition and tracking
-- **Kwasa-Kwasa**: Rhythmic and oscillatory processing
-- **Four Sided Triangle**: Paradoxical logic and contradiction resolution
-- **Bene Gesserit**: Quantum membrane computation and prescience
-- **Nebuchadnezzar**: Hierarchical biological circuit processing
+- **Autobahn**: RAG (Retrieval-Augmented Generation) system for knowledge integration
+- **Heihachi**: Fire emotion processing system for affective neural responses
+- **Helicopter**: Visual understanding system for computer vision processing
+- **Izinyoka**: Metacognitive processing system for self-awareness and introspection
+- **Kwasa-Kwasa**: Semantic processing system for language understanding
+- **Four Sided Triangle**: Optimization processing system for parameter tuning
+- **Bene Gesserit**: Membrane dynamics system for biological membrane simulation
+- **Nebuchadnezzar**: Circuits processing system for hierarchical neural circuit modeling
 
 ## Quick Start: Neural Consciousness Simulation
 
