@@ -96,7 +96,7 @@ pub struct KnowledgeRetriever {
 }
 
 /// Knowledge entry
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct KnowledgeEntry {
     /// Entry identifier
     pub id: String,
@@ -278,7 +278,7 @@ pub struct AutobahnStats {
 }
 
 /// RAG processing results
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct RagResults {
     /// Retrieved knowledge
     pub retrieved_knowledge: Vec<KnowledgeEntry>,
@@ -300,7 +300,7 @@ pub struct RagResults {
 }
 
 /// Quantum processing metrics
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct QuantumMetrics {
     /// Quantum coherence level
     pub coherence_level: f64,
@@ -316,7 +316,7 @@ pub struct QuantumMetrics {
 }
 
 /// Biological intelligence metrics
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct BiologicalMetrics {
     /// Biological authenticity score
     pub authenticity_score: f64,

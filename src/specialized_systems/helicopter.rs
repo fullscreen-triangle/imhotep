@@ -63,7 +63,7 @@ pub struct VisualProcessor {
 }
 
 /// Current visual state
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct VisualState {
     /// Current image data (simplified as feature vectors)
     pub current_image: Vec<f64>,
@@ -85,7 +85,7 @@ pub struct VisualState {
 }
 
 /// Visual feature
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct VisualFeature {
     /// Feature identifier
     pub feature_id: String,
@@ -107,7 +107,7 @@ pub struct VisualFeature {
 }
 
 /// Feature types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum FeatureType {
     /// Edge detection
     Edge { orientation: f64, strength: f64 },
@@ -141,7 +141,7 @@ pub enum FeatureType {
 }
 
 /// Scene composition
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SceneComposition {
     /// Detected objects
     pub objects: Vec<SceneObject>,
@@ -160,7 +160,7 @@ pub struct SceneComposition {
 }
 
 /// Scene object
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SceneObject {
     /// Object identifier
     pub object_id: String,
@@ -182,7 +182,7 @@ pub struct SceneObject {
 }
 
 /// Spatial relationship
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SpatialRelationship {
     /// Relationship identifier
     pub relationship_id: String,
@@ -201,7 +201,7 @@ pub struct SpatialRelationship {
 }
 
 /// Relationship types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum RelationshipType {
     /// Spatial relationships
     Above,
@@ -226,7 +226,7 @@ pub enum RelationshipType {
 }
 
 /// Scene context
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SceneContext {
     /// Scene type
     pub scene_type: String,
@@ -245,7 +245,7 @@ pub struct SceneContext {
 }
 
 /// Lighting conditions
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct LightingConditions {
     /// Overall brightness
     pub brightness: f64,
@@ -261,7 +261,7 @@ pub struct LightingConditions {
 }
 
 /// Light source
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct LightSource {
     /// Light source identifier
     pub source_id: String,
@@ -280,7 +280,7 @@ pub struct LightSource {
 }
 
 /// Shadow
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct Shadow {
     /// Shadow identifier
     pub shadow_id: String,
@@ -725,7 +725,7 @@ pub struct VisualStats {
 }
 
 /// Visual processing results
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct VisualResults {
     /// Current visual state
     pub visual_state: VisualState,
@@ -744,7 +744,7 @@ pub struct VisualResults {
 }
 
 /// Scene analysis results
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SceneAnalysisResults {
     /// Detected objects
     pub detected_objects: Vec<SceneObject>,
@@ -763,7 +763,7 @@ pub struct SceneAnalysisResults {
 }
 
 /// Understanding insight
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct UnderstandingInsight {
     /// Insight identifier
     pub insight_id: String,
@@ -782,7 +782,7 @@ pub struct UnderstandingInsight {
 }
 
 /// Understanding insight types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum UnderstandingInsightType {
     /// Scene interpretation
     SceneInterpretation,
@@ -801,7 +801,7 @@ pub enum UnderstandingInsightType {
 }
 
 /// Visual insight
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct VisualInsight {
     /// Insight identifier
     pub insight_id: String,
@@ -820,7 +820,7 @@ pub struct VisualInsight {
 }
 
 /// Visual insight types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum VisualInsightType {
     /// Feature detection
     FeatureDetection,

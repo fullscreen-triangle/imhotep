@@ -9,16 +9,7 @@ use std::sync::Arc;
 use tokio::sync::{mpsc, RwLock};
 
 use crate::error::{ImhotepError, ImhotepResult};
-use crate::specialized_systems::{
-    autobahn::{AutobahnConfig, AutobahnSystem},
-    bene_gesserit::{BeneGesseritConfig, BeneGesseritSystem},
-    four_sided_triangle::{FourSidedTriangleConfig, FourSidedTriangleSystem},
-    heihachi::{HeihachiConfig, HeihachiSystem},
-    helicopter::{HelicopterConfig, HelicopterSystem},
-    izinyoka::{IzinyokaConfig, IzinyokaSystem},
-    kwasa_kwasa::{KwasaKwasaConfig, KwasaKwasaSystem},
-    nebuchanezzar::{NebuchadnezzarConfig, NebuchadnezzarSystem},
-};
+// Note: Individual system imports will be added when implementing system integration
 
 /// Coordination system for all specialized systems
 pub struct CoordinationSystem {
@@ -104,7 +95,7 @@ pub struct RegisteredSystem {
 }
 
 /// System types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum SystemType {
     /// Autobahn RAG system
     Autobahn,
@@ -132,7 +123,7 @@ pub enum SystemType {
 }
 
 /// System metadata
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SystemMetadata {
     /// System description
     pub description: String,
@@ -154,7 +145,7 @@ pub struct SystemMetadata {
 }
 
 /// Resource requirements
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct ResourceRequirements {
     /// CPU cores required
     pub cpu_cores: usize,
@@ -173,7 +164,7 @@ pub struct ResourceRequirements {
 }
 
 /// Performance characteristics
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct PerformanceCharacteristics {
     /// Average processing time (ms)
     pub avg_processing_time_ms: f64,
@@ -192,7 +183,7 @@ pub struct PerformanceCharacteristics {
 }
 
 /// System capability
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct SystemCapability {
     /// Capability identifier
     pub capability_id: String,
@@ -214,7 +205,7 @@ pub struct SystemCapability {
 }
 
 /// Capability types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum CapabilityType {
     /// Data processing
     Processing,
@@ -239,7 +230,7 @@ pub enum CapabilityType {
 }
 
 /// System status
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum SystemStatus {
     /// System is initializing
     Initializing,

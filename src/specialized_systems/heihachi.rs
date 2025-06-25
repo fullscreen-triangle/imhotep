@@ -63,7 +63,7 @@ pub struct EmotionProcessor {
 }
 
 /// Current emotional state
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct EmotionalState {
     /// Primary emotions
     pub primary_emotions: HashMap<String, f64>,
@@ -88,7 +88,7 @@ pub struct EmotionalState {
 }
 
 /// Emotional dynamics
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct EmotionalDynamics {
     /// Emotion onset time (ms)
     pub onset_time: f64,
@@ -167,7 +167,7 @@ pub struct EmotionalMemory {
 }
 
 /// Emotional episode
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct EmotionalEpisode {
     /// Episode identifier
     pub episode_id: String,
@@ -437,7 +437,7 @@ pub struct AffectiveResponseState {
 }
 
 /// Active response
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct ActiveResponse {
     /// Response identifier
     pub response_id: String,
@@ -516,7 +516,7 @@ pub struct EmotionStats {
 }
 
 /// Emotion processing results
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct EmotionResults {
     /// Current emotional state
     pub emotional_state: EmotionalState,
@@ -538,7 +538,7 @@ pub struct EmotionResults {
 }
 
 /// Fire analysis results
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct FireAnalysisResults {
     /// Detected fire wavelength
     pub detected_wavelength: f64,
@@ -554,7 +554,7 @@ pub struct FireAnalysisResults {
 }
 
 /// Emotional insight
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct EmotionalInsight {
     /// Insight identifier
     pub insight_id: String,
@@ -576,7 +576,7 @@ pub struct EmotionalInsight {
 }
 
 /// Emotional insight types
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum EmotionalInsightType {
     /// Fire-emotion coupling detected
     FireEmotionCoupling,

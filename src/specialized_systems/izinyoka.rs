@@ -36,7 +36,7 @@ pub struct IzinyokaMetacognitive {
 }
 
 /// Metacognitive processing chunk (partial input)
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct MetacognitiveChunk {
     /// Chunk identifier
     pub chunk_id: String,
@@ -61,7 +61,7 @@ pub struct MetacognitiveChunk {
 }
 
 /// Real-time metacognitive insight
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct MetacognitiveInsight {
     /// Insight identifier
     pub insight_id: String,
@@ -92,7 +92,7 @@ pub struct MetacognitiveInsight {
 }
 
 /// Types of metacognitive insights
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum MetacognitiveInsightType {
     /// Self-awareness about own processing
     SelfAwareness,
@@ -120,7 +120,7 @@ pub enum MetacognitiveInsightType {
 }
 
 /// Processing stages
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum ProcessingStage {
     /// Initial chunk processing
     InitialProcessing,
@@ -139,7 +139,7 @@ pub enum ProcessingStage {
 }
 
 /// Metacognitive processing step
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct MetacognitiveStep {
     /// Step description
     pub description: String,
@@ -196,7 +196,7 @@ pub struct SessionState {
 }
 
 /// Processing context
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct ProcessingContext {
     /// Processing goal
     pub goal: String,
