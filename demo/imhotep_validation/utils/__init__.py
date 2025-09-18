@@ -1,18 +1,8 @@
+# imhotep_validation/utils/__init__.py
 """
-Utility modules for Imhotep validation framework.
-
-Provides statistical analysis, data generation, visualization, and logging utilities
-to support comprehensive validation of all theoretical claims.
+Utility functions for the Imhotep validation package.
 """
 
-from .statistical_analysis import StatisticalAnalyzer
-from .data_generator import DataGenerator
-from .visualization import ValidationVisualizer
-from .logging_utils import setup_validation_logging
+from .statistical_analysis import calculate_entropy
 
-__all__ = [
-    'StatisticalAnalyzer',
-    'DataGenerator',
-    'ValidationVisualizer',
-    'setup_validation_logging'
-]
+__all__ = ['calculate_entropy']

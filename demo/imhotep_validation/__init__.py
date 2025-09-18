@@ -7,7 +7,7 @@ Comprehensive experimental validation of all theoretical claims in the Imhotep n
 
 This package provides rigorous experimental validation for:
 - Universal Problem-Solving Engine Theory
-- BMD Information Catalysis Framework  
+- BMD Information Catalysis Framework
 - Quantum Membrane Dynamics
 - Visual Consciousness Framework
 - Pharmaceutical Consciousness Optimization
@@ -26,27 +26,17 @@ __institution__ = "Independent Research Institute, Buhera, Zimbabwe"
 # Core validation classes
 from .core.comprehensive_validator import ComprehensiveValidator
 from .core.quick_validator import QuickValidator
-from .core.benchmark_suite import BenchmarkSuite
-from .core.results_manager import ResultsManager
+from .core.validation_base import ValidationBase
 
-# Specific validation modules
+# Specific validation modules (only the ones we actually implemented)
 from .validators.universal_problem_solving import UniversalProblemSolvingValidator
-from .validators.bmd_information_catalysis import BMDInformationCatalysisValidator  
+from .validators.bmd_information_catalysis import BMDInformationCatalysisValidator
 from .validators.quantum_membrane_dynamics import QuantumMembraneDynamicsValidator
-from .validators.visual_consciousness import VisualConsciousnessValidator
-from .validators.pharmaceutical_optimization import PharmaceuticalOptimizationValidator
-from .validators.self_aware_networks import SelfAwareNetworksValidator
-from .validators.production_performance import ProductionPerformanceValidator
+from .validators.self_awareness import SelfAwarenessValidator
+from .validators import ALL_VALIDATORS
 
-# Utility modules
-from .utils.statistical_analysis import StatisticalAnalyzer
-from .utils.data_generator import DataGenerator
-from .utils.visualization import ValidationVisualizer
-from .utils.logging_utils import setup_validation_logging
-
-# Configuration
-from .config.validation_config import ValidationConfig
-from .config.experimental_parameters import ExperimentalParameters
+# Utility modules (only the ones we actually implemented)
+from .utils.statistical_analysis import calculate_entropy
 
 # Exception classes
 class ImhotepValidationError(Exception):
@@ -66,100 +56,74 @@ class ConfigurationError(ImhotepValidationError):
     pass
 
 # Main validation functions
-def validate_all_claims(output_dir="./results", detailed=True, save_json=True):
+def validate_all_claims(output_dir="./validation_results", parallel_validation=True, verbose=True, random_seed=42):
     """
     Validate all theoretical claims in the Imhotep framework.
-    
+
     Args:
         output_dir (str): Directory to save validation results
-        detailed (bool): Whether to run detailed validation tests
-        save_json (bool): Whether to save results in JSON format
-        
+        parallel_validation (bool): Whether to run validations in parallel
+        verbose (bool): Whether to print detailed progress
+        random_seed (int): Random seed for reproducible results
+
     Returns:
         dict: Comprehensive validation results
-        
+
     Example:
         >>> import imhotep_validation as iv
         >>> results = iv.validate_all_claims()
-        >>> print(f"Claims validated: {results['summary']['claims_validated']}")
+        >>> print(f"Overall validation passed: {results['comprehensive_summary']['overall_validation_passed']}")
     """
-    validator = ComprehensiveValidator()
+    validator = ComprehensiveValidator(
+        output_dir=output_dir,
+        parallel_validation=parallel_validation,
+        verbose=verbose,
+        random_seed=random_seed
+    )
     return validator.validate_all_claims(
-        output_dir=output_dir, 
-        detailed=detailed, 
-        save_json=save_json
+        save_results=True,
+        detailed_analysis=True,
+        generate_report=True
     )
 
-def quick_validation(components=None):
+def quick_validation(verbose=True, random_seed=42, output_dir=None):
     """
     Run quick validation of core Imhotep components.
-    
+
     Args:
-        components (list): List of components to validate. 
-                          If None, validates all core components.
-                          
+        verbose (bool): Whether to print validation progress
+        random_seed (int): Random seed for reproducibility
+        output_dir (str): Directory to save results
+
     Returns:
         dict: Quick validation results
-        
-    Example:
-        >>> import imhotep_validation as iv
-        >>> results = iv.quick_validation(['bmd', 'quantum'])
-        >>> print(f"BMD validation: {results['bmd']['status']}")
-    """
-    validator = QuickValidator()
-    return validator.validate_components(components)
 
-def benchmark_performance(baselines=None, metrics=None):
-    """
-    Benchmark Imhotep performance against baseline methods.
-    
-    Args:
-        baselines (list): Baseline methods to compare against
-        metrics (list): Performance metrics to evaluate
-        
-    Returns:
-        dict: Benchmark results showing performance comparisons
-        
     Example:
         >>> import imhotep_validation as iv
-        >>> benchmarks = iv.benchmark_performance(
-        ...     baselines=['transformer', 'resnet'],
-        ...     metrics=['accuracy', 'efficiency']
-        ... )
-        >>> print(f"Performance advantage: {benchmarks['improvement_factor']}×")
+        >>> results = iv.quick_validation()
+        >>> print(f"Quick validation passed: {results['validation_passed']}")
     """
-    benchmark_suite = BenchmarkSuite()
-    return benchmark_suite.run_benchmarks(baselines, metrics)
+    validator = QuickValidator(
+        verbose=verbose,
+        random_seed=random_seed,
+        output_dir=output_dir
+    )
+    return validator.run_validation(save_results=True)
 
 # Package metadata
 VALIDATION_MODULES = [
     'universal_problem_solving',
     'bmd_information_catalysis', 
     'quantum_membrane_dynamics',
-    'visual_consciousness',
-    'pharmaceutical_optimization',
-    'self_aware_networks',
-    'production_performance'
+    'self_awareness'
 ]
 
 SUPPORTED_METRICS = [
-    'accuracy',
-    'efficiency', 
-    'information_density',
+    'information_processing_speedup',
     'quantum_coherence',
-    'consciousness_coherence',
-    'processing_speed',
-    'error_rate',
-    'robustness'
-]
-
-BENCHMARK_BASELINES = [
-    'classical_neural_network',
-    'transformer',
-    'resnet',
-    'lstm',
-    'conventional_quantum_processor',
-    'standard_vision_system'
+    'self_awareness_accuracy',
+    'computational_impossibility',
+    'universal_solvability'
 ]
 
 # Validation status tracking
@@ -177,31 +141,31 @@ def get_validation_status():
 def initialize_validation_environment():
     """Initialize the validation environment with proper configuration."""
     global _validation_status
-    
-    # Set up logging
-    setup_validation_logging()
-    
-    # Load configuration
-    config = ValidationConfig()
-    config.load_default_config()
-    
-    # Initialize random seeds for reproducibility  
-    import numpy as np
-    import torch
-    import random
-    
-    seed = 42
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-    random.seed(seed)
-    
+
+    # Initialize random seeds for reproducibility
+    try:
+        import numpy as np
+        import random
+        
+        seed = 42
+        np.random.seed(seed)
+        random.seed(seed)
+        
+        try:
+            import torch
+            torch.manual_seed(seed)
+        except ImportError:
+            pass
+            
+    except ImportError:
+        pass
+
     _validation_status['initialized'] = True
     _validation_status['config_loaded'] = True
-    
+
     print("🧠 Imhotep Validation Environment Initialized")
     print(f"📊 Ready to validate {len(VALIDATION_MODULES)} theoretical frameworks")
     print(f"🎯 {len(SUPPORTED_METRICS)} performance metrics available")
-    print(f"📈 {len(BENCHMARK_BASELINES)} baseline comparisons supported")
 
 # Auto-initialize when package is imported
 initialize_validation_environment()
@@ -209,41 +173,32 @@ initialize_validation_environment()
 __all__ = [
     # Core classes
     'ComprehensiveValidator',
-    'QuickValidator', 
-    'BenchmarkSuite',
-    'ResultsManager',
-    
+    'QuickValidator',
+    'ValidationBase',
+
     # Validators
-    'UniversalProblemSolvingValidator',
+    'UniversalProblemSolvingValidator', 
     'BMDInformationCatalysisValidator',
-    'QuantumMembraneDynamicsValidator', 
-    'VisualConsciousnessValidator',
-    'PharmaceuticalOptimizationValidator',
-    'SelfAwareNetworksValidator',
-    'ProductionPerformanceValidator',
-    
+    'QuantumMembraneDynamicsValidator',
+    'SelfAwarenessValidator',
+    'ALL_VALIDATORS',
+
     # Utilities
-    'StatisticalAnalyzer',
-    'DataGenerator',
-    'ValidationVisualizer',
-    'ValidationConfig',
-    'ExperimentalParameters',
-    
+    'calculate_entropy',
+
     # Main functions
     'validate_all_claims',
     'quick_validation',
-    'benchmark_performance',
     'get_validation_status',
     'initialize_validation_environment',
-    
+
     # Exceptions
     'ImhotepValidationError',
-    'ValidationFailureError', 
+    'ValidationFailureError',
     'InsufficientDataError',
     'ConfigurationError',
-    
+
     # Constants
     'VALIDATION_MODULES',
     'SUPPORTED_METRICS',
-    'BENCHMARK_BASELINES',
 ]

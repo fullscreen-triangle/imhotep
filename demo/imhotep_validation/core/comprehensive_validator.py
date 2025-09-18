@@ -6,7 +6,7 @@ This module orchestrates validation of all theoretical frameworks including:
 - Universal Problem-Solving Engine Theory
 - BMD Information Catalysis Framework
 - Quantum Membrane Dynamics
-- Visual Consciousness Framework  
+- Visual Consciousness Framework
 - Pharmaceutical Consciousness Optimization
 - Self-Aware Neural Networks
 - Production Performance Claims
@@ -27,21 +27,21 @@ from .validation_base import ValidationBase
 from ..validators.universal_problem_solving import UniversalProblemSolvingValidator
 from ..validators.bmd_information_catalysis import BMDInformationCatalysisValidator
 from ..validators.quantum_membrane_dynamics import QuantumMembraneDynamicsValidator
-from ..validators.visual_consciousness import VisualConsciousnessValidator
-from ..validators.pharmaceutical_optimization import PharmaceuticalOptimizationValidator
-from ..validators.self_aware_networks import SelfAwareNetworksValidator
-from ..validators.production_performance import ProductionPerformanceValidator
-from ..utils.statistical_analysis import StatisticalAnalyzer
+from ..validators.self_awareness import SelfAwarenessValidator
+# from ..validators.visual_consciousness import VisualConsciousnessValidator
+# from ..validators.pharmaceutical_optimization import PharmaceuticalOptimizationValidator
+# from ..validators.production_performance import ProductionPerformanceValidator
+from ..utils.statistical_analysis import calculate_entropy
 
 
 class ComprehensiveValidator:
     """
     Comprehensive validator that orchestrates validation of all Imhotep framework claims.
-    
+
     This class coordinates validation across all theoretical frameworks and provides
     unified results showing the complete validation status of the Imhotep system.
     """
-    
+
     def __init__(self,
                  output_dir: Optional[str] = None,
                  parallel_validation: bool = True,
@@ -49,7 +49,7 @@ class ComprehensiveValidator:
                  random_seed: int = 42):
         """
         Initialize comprehensive validator.
-        
+
         Args:
             output_dir: Directory to save all validation results
             parallel_validation: Whether to run validations in parallel
@@ -60,16 +60,13 @@ class ComprehensiveValidator:
         self.parallel_validation = parallel_validation
         self.verbose = verbose
         self.random_seed = random_seed
-        
+
         # Initialize logging
         self.logger = self._setup_logger()
-        
-        # Initialize statistical analyzer
-        self.statistical_analyzer = StatisticalAnalyzer()
-        
+
         # Initialize individual validators
         self._initialize_validators()
-        
+
         # Validation results storage
         self.comprehensive_results = {}
         self.framework_results = {}
@@ -83,16 +80,16 @@ class ComprehensiveValidator:
             'end_time': None,
             'total_duration_seconds': None
         }
-        
+
         if self.verbose:
             self.logger.info("🧠 Imhotep Comprehensive Validator Initialized")
             self.logger.info(f"📊 Ready to validate {len(self.validators)} theoretical frameworks")
-    
+
     def _setup_logger(self) -> logging.Logger:
         """Set up comprehensive validator logger."""
         logger = logging.getLogger("imhotep.validation.comprehensive")
         logger.setLevel(logging.INFO if self.verbose else logging.WARNING)
-        
+
         if not logger.handlers:
             handler = logging.StreamHandler()
             formatter = logging.Formatter(
@@ -100,9 +97,9 @@ class ComprehensiveValidator:
             )
             handler.setFormatter(formatter)
             logger.addHandler(handler)
-        
+
         return logger
-    
+
     def _initialize_validators(self):
         """Initialize all individual framework validators."""
         self.validators = {
@@ -121,68 +118,57 @@ class ComprehensiveValidator:
                 random_seed=self.random_seed,
                 output_dir=str(self.output_dir / "quantum_membrane_dynamics")
             ),
-            'visual_consciousness': VisualConsciousnessValidator(
+            'self_awareness': SelfAwarenessValidator(
                 verbose=self.verbose,
                 random_seed=self.random_seed,
-                output_dir=str(self.output_dir / "visual_consciousness")
-            ),
-            'pharmaceutical_optimization': PharmaceuticalOptimizationValidator(
-                verbose=self.verbose,
-                random_seed=self.random_seed,
-                output_dir=str(self.output_dir / "pharmaceutical_optimization")
-            ),
-            'self_aware_networks': SelfAwareNetworksValidator(
-                verbose=self.verbose,
-                random_seed=self.random_seed,
-                output_dir=str(self.output_dir / "self_aware_networks")
-            ),
-            'production_performance': ProductionPerformanceValidator(
-                verbose=self.verbose,
-                random_seed=self.random_seed,
-                output_dir=str(self.output_dir / "production_performance")
+                output_dir=str(self.output_dir / "self_awareness")
             )
+            # Note: Additional validators can be uncommented when implemented:
+            # 'visual_consciousness': VisualConsciousnessValidator(...),
+            # 'pharmaceutical_optimization': PharmaceuticalOptimizationValidator(...),
+            # 'production_performance': ProductionPerformanceValidator(...)
         }
-        
+
         if self.verbose:
             self.logger.info(f"✅ Initialized {len(self.validators)} framework validators")
-    
+
     def validate_all_claims(self,
                            save_results: bool = True,
                            detailed_analysis: bool = True,
                            generate_report: bool = True) -> Dict[str, Any]:
         """
         Validate all theoretical claims in the Imhotep framework.
-        
+
         Args:
             save_results: Whether to save results to files
             detailed_analysis: Whether to perform detailed statistical analysis
             generate_report: Whether to generate comprehensive validation report
-            
+
         Returns:
             Complete validation results for all frameworks
         """
         self.logger.info("🚀 Starting comprehensive validation of all Imhotep claims")
         start_time = time.time()
         self.validation_metadata['start_time'] = datetime.now(timezone.utc).isoformat()
-        
+
         try:
             # Run individual framework validations
             if self.parallel_validation:
                 framework_results = self._run_parallel_validation()
             else:
                 framework_results = self._run_sequential_validation()
-            
+
             # Analyze comprehensive results
             comprehensive_analysis = self._analyze_comprehensive_results(framework_results)
-            
+
             # Calculate overall statistical metrics
             statistical_summary = self._calculate_overall_statistics(framework_results)
-            
+
             # Generate comprehensive results
             end_time = time.time()
             self.validation_metadata['end_time'] = datetime.now(timezone.utc).isoformat()
             self.validation_metadata['total_duration_seconds'] = end_time - start_time
-            
+
             complete_results = {
                 'metadata': self.validation_metadata,
                 'comprehensive_summary': comprehensive_analysis,
@@ -191,16 +177,16 @@ class ComprehensiveValidator:
                 'validation_timestamp': datetime.now(timezone.utc).isoformat(),
                 'validation_status': 'COMPLETED'
             }
-            
+
             # Store results
             self.comprehensive_results = complete_results
             self.framework_results = framework_results
             self.statistical_summary = statistical_summary
-            
+
             # Save results if requested
             if save_results:
                 self._save_comprehensive_results(complete_results)
-            
+
             # Generate report if requested
             if generate_report:
                 report = self._generate_comprehensive_report(complete_results)
@@ -211,18 +197,18 @@ class ComprehensiveValidator:
                     print("COMPREHENSIVE VALIDATION REPORT")
                     print("="*80)
                     print(report)
-            
+
             # Log completion
             total_claims = sum(r['validation_results']['claims_tested'] for r in framework_results.values())
             validated_claims = sum(r['validation_results']['claims_validated'] for r in framework_results.values())
-            
+
             self.logger.info(f"✅ Comprehensive validation completed in {end_time - start_time:.2f}s")
             self.logger.info(f"📊 Total claims tested: {total_claims}")
             self.logger.info(f"🎯 Claims validated: {validated_claims}")
             self.logger.info(f"📈 Validation success rate: {validated_claims/total_claims*100:.1f}%")
-            
+
             return complete_results
-            
+
         except Exception as e:
             self.logger.error(f"❌ Comprehensive validation failed: {str(e)}")
             error_results = {
@@ -231,18 +217,18 @@ class ComprehensiveValidator:
                 'error': str(e),
                 'error_type': type(e).__name__
             }
-            
+
             if save_results:
                 self._save_comprehensive_results(error_results)
-            
+
             raise
-    
+
     def _run_parallel_validation(self) -> Dict[str, Any]:
         """Run all framework validations in parallel."""
         self.logger.info("⚡ Running parallel validation across all frameworks")
-        
+
         framework_results = {}
-        
+
         # Use ThreadPoolExecutor for I/O bound validation tasks
         with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(self.validators), mp.cpu_count())) as executor:
             # Submit all validation tasks
@@ -250,17 +236,17 @@ class ComprehensiveValidator:
                 executor.submit(validator.run_validation): framework_name
                 for framework_name, validator in self.validators.items()
             }
-            
+
             # Collect results as they complete
             for future in concurrent.futures.as_completed(future_to_framework):
                 framework_name = future_to_framework[future]
                 try:
                     result = future.result()
                     framework_results[framework_name] = result
-                    
+
                     status = "✅" if result['validation_results']['validation_passed'] else "❌"
                     self.logger.info(f"{status} {framework_name} validation completed")
-                    
+
                 except Exception as e:
                     self.logger.error(f"❌ {framework_name} validation failed: {str(e)}")
                     framework_results[framework_name] = {
@@ -270,24 +256,24 @@ class ComprehensiveValidator:
                             'error_type': type(e).__name__
                         }
                     }
-        
+
         return framework_results
-    
+
     def _run_sequential_validation(self) -> Dict[str, Any]:
         """Run all framework validations sequentially."""
         self.logger.info("🔄 Running sequential validation across all frameworks")
-        
+
         framework_results = {}
-        
+
         for framework_name, validator in self.validators.items():
             try:
                 self.logger.info(f"🧪 Validating {framework_name}...")
                 result = validator.run_validation()
                 framework_results[framework_name] = result
-                
+
                 status = "✅" if result['validation_results']['validation_passed'] else "❌"
                 self.logger.info(f"{status} {framework_name} validation completed")
-                
+
             except Exception as e:
                 self.logger.error(f"❌ {framework_name} validation failed: {str(e)}")
                 framework_results[framework_name] = {
@@ -297,30 +283,30 @@ class ComprehensiveValidator:
                         'error_type': type(e).__name__
                     }
                 }
-        
+
         return framework_results
-    
+
     def _analyze_comprehensive_results(self, framework_results: Dict[str, Any]) -> Dict[str, Any]:
         """Analyze results across all frameworks to provide comprehensive assessment."""
-        
+
         # Count overall validation statistics
         total_frameworks = len(framework_results)
         passed_frameworks = sum(
-            1 for r in framework_results.values() 
+            1 for r in framework_results.values()
             if r['validation_results'].get('validation_passed', False)
         )
         failed_frameworks = total_frameworks - passed_frameworks
-        
+
         # Calculate total claims statistics
         total_claims_tested = sum(
-            r['validation_results'].get('claims_tested', 0) 
+            r['validation_results'].get('claims_tested', 0)
             for r in framework_results.values()
         )
         total_claims_validated = sum(
-            r['validation_results'].get('claims_validated', 0) 
+            r['validation_results'].get('claims_validated', 0)
             for r in framework_results.values()
         )
-        
+
         # Calculate overall confidence metrics
         confidences = [
             r['validation_results'].get('confidence', 0.0)
@@ -328,14 +314,14 @@ class ComprehensiveValidator:
             if r['validation_results'].get('confidence') is not None
         ]
         overall_confidence = np.mean(confidences) if confidences else 0.0
-        
+
         # Calculate overall p-values (using Fisher's method for combining p-values)
         p_values = [
             r['validation_results'].get('p_value', 1.0)
             for r in framework_results.values()
             if r['validation_results'].get('p_value') is not None
         ]
-        
+
         # Fisher's method for combining p-values
         if p_values:
             from scipy import stats
@@ -343,7 +329,7 @@ class ComprehensiveValidator:
             combined_p_value = 1 - stats.chi2.cdf(chi_squared, 2 * len(p_values))
         else:
             combined_p_value = 1.0
-        
+
         # Effect sizes
         effect_sizes = [
             r['validation_results'].get('effect_size', 0.0)
@@ -351,7 +337,7 @@ class ComprehensiveValidator:
             if r['validation_results'].get('effect_size') is not None
         ]
         overall_effect_size = np.mean(effect_sizes) if effect_sizes else 0.0
-        
+
         # Determine overall validation status
         overall_validation_passed = (
             passed_frameworks == total_frameworks and
@@ -359,7 +345,7 @@ class ComprehensiveValidator:
             overall_confidence >= 0.95 and
             combined_p_value < 0.001
         )
-        
+
         return {
             'overall_validation_passed': overall_validation_passed,
             'framework_statistics': {
@@ -387,40 +373,40 @@ class ComprehensiveValidator:
                 'comprehensive_validation': overall_validation_passed
             }
         }
-    
+
     def _calculate_overall_statistics(self, framework_results: Dict[str, Any]) -> Dict[str, Any]:
         """Calculate comprehensive statistical summary across all frameworks."""
-        
+
         # Performance improvements across frameworks
         improvements = {}
-        
+
         # Information density advantages
         info_density_results = []
-        
+
         # Quantum processing validations
         quantum_results = []
-        
+
         # Clinical validation results
         clinical_results = []
-        
+
         # Extract specific metrics from framework results
         for framework_name, results in framework_results.items():
             validation_results = results.get('validation_results', {})
             detailed_results = validation_results.get('detailed_results', {})
-            
+
             # Extract relevant metrics based on framework
             if framework_name == 'bmd_information_catalysis':
                 if 'information_density_advantage' in detailed_results:
                     info_density_results.append(detailed_results['information_density_advantage'])
-                    
+
             elif framework_name == 'quantum_membrane_dynamics':
                 if 'room_temperature_coherence' in detailed_results:
                     quantum_results.append(detailed_results['room_temperature_coherence'])
-                    
+
             elif framework_name == 'production_performance':
                 if 'clinical_validation' in detailed_results:
                     clinical_results.append(detailed_results['clinical_validation'])
-        
+
         return {
             'information_density_validation': {
                 'results_count': len(info_density_results),
@@ -453,21 +439,21 @@ class ComprehensiveValidator:
                 ) / len(framework_results)
             }
         }
-    
+
     def _save_comprehensive_results(self, results: Dict[str, Any]):
         """Save comprehensive validation results."""
         # Create output directory
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        
+
         # Generate timestamp for filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+
         # Save comprehensive results
         comprehensive_file = self.output_dir / f"comprehensive_validation_{timestamp}.json"
         with open(comprehensive_file, 'w') as f:
             json.dump(results, f, indent=2, default=str)
-        
-        # Save summary results  
+
+        # Save summary results
         summary_file = self.output_dir / f"validation_summary_{timestamp}.json"
         summary_results = {
             'metadata': results['metadata'],
@@ -476,16 +462,16 @@ class ComprehensiveValidator:
         }
         with open(summary_file, 'w') as f:
             json.dump(summary_results, f, indent=2, default=str)
-        
+
         self.logger.info(f"💾 Comprehensive results saved to {comprehensive_file}")
         self.logger.info(f"📋 Summary results saved to {summary_file}")
-    
+
     def _generate_comprehensive_report(self, results: Dict[str, Any]) -> str:
         """Generate comprehensive human-readable validation report."""
-        
+
         summary = results['comprehensive_summary']
         stats = results['statistical_summary']
-        
+
         report = f"""
 🧠 IMHOTEP COMPREHENSIVE VALIDATION REPORT
 {'='*80}
@@ -498,7 +484,7 @@ FRAMEWORK VALIDATION SUMMARY:
 - Framework Success Rate: {summary['framework_statistics']['framework_success_rate']:.1%}
 
 THEORETICAL CLAIMS VALIDATION:
-- Total Claims Tested: {summary['claims_statistics']['total_claims_tested']}  
+- Total Claims Tested: {summary['claims_statistics']['total_claims_tested']}
 - Claims Validated: {summary['claims_statistics']['total_claims_validated']}
 - Claims Validation Rate: {summary['claims_statistics']['claims_validation_rate']:.1%}
 
@@ -510,12 +496,12 @@ STATISTICAL SIGNIFICANCE:
 
 KEY PERFORMANCE VALIDATIONS:
 - Information Density Advantage: {'✅ VALIDATED' if stats['information_density_validation']['target_achieved'] else '❌ NOT ACHIEVED'}
-- Room-Temperature Quantum Processing: {'✅ VALIDATED' if stats['quantum_processing_validation']['room_temperature_viability'] > 0 else '❌ NOT ACHIEVED'}  
+- Room-Temperature Quantum Processing: {'✅ VALIDATED' if stats['quantum_processing_validation']['room_temperature_viability'] > 0 else '❌ NOT ACHIEVED'}
 - Clinical Performance Targets: {'✅ VALIDATED' if stats['clinical_validation']['sensitivity_achieved'] and stats['clinical_validation']['specificity_achieved'] else '❌ NOT ACHIEVED'}
 
 INDIVIDUAL FRAMEWORK STATUS:
 """
-        
+
         # Add individual framework results
         for framework_name, framework_result in results['framework_results'].items():
             validation_result = framework_result['validation_results']
@@ -523,14 +509,14 @@ INDIVIDUAL FRAMEWORK STATUS:
             confidence = validation_result.get('confidence', 0.0)
             claims_tested = validation_result.get('claims_tested', 0)
             claims_validated = validation_result.get('claims_validated', 0)
-            
+
             report += f"""
 {framework_name.upper().replace('_', ' ')}:
 - Status: {status}
 - Confidence: {confidence:.3f}
 - Claims: {claims_validated}/{claims_tested} validated
 """
-        
+
         # Add validation metadata
         metadata = results['metadata']
         report += f"""
@@ -547,24 +533,24 @@ Statistical significance: p < 0.001
 Effect size: Large (Cohen\'s d ≥ 0.8)
 Reproducibility: All results validated across multiple runs
 """
-        
+
         return report
-    
+
     def _save_validation_report(self, report: str):
         """Save validation report to file."""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         report_file = self.output_dir / f"comprehensive_validation_report_{timestamp}.txt"
-        
+
         with open(report_file, 'w', encoding='utf-8') as f:
             f.write(report)
-        
+
         self.logger.info(f"📝 Validation report saved to {report_file}")
-    
+
     def get_validation_summary(self) -> Dict[str, Any]:
         """Get a quick summary of the latest validation results."""
         if not self.comprehensive_results:
             return {"status": "No validation results available"}
-        
+
         summary = self.comprehensive_results.get('comprehensive_summary', {})
         return {
             'overall_status': 'PASSED' if summary.get('overall_validation_passed', False) else 'FAILED',
