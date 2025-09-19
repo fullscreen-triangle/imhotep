@@ -4,9 +4,9 @@ This guide provides step-by-step instructions for installing and using the Imhot
 
 ## Prerequisites
 
-- Python 3.7 or higher
-- pip (Python package manager)
-- Virtual environment (recommended)
+-   Python 3.7 or higher
+-   pip (Python package manager)
+-   Virtual environment (recommended)
 
 ## Installation
 
@@ -26,6 +26,7 @@ source imhotep_env/bin/activate
 ### 2. Install the Package
 
 #### Option A: Development Installation (from source)
+
 ```bash
 # Navigate to the demo directory containing setup.py
 cd path/to/demo
@@ -35,6 +36,7 @@ pip install -e .
 ```
 
 #### Option B: Standard Installation (when published)
+
 ```bash
 pip install imhotep-validation
 ```
@@ -114,11 +116,11 @@ python -m imhotep_validation.main run bmd_information_catalysis --output ./bmd_r
 
 ### Command Line Options
 
-- `--output DIR`: Specify output directory for results
-- `--verbose`: Enable detailed progress output
-- `--quiet`: Suppress most output
-- `--sequential`: Run validations sequentially instead of in parallel
-- `--seed N`: Set random seed for reproducible results
+-   `--output DIR`: Specify output directory for results
+-   `--verbose`: Enable detailed progress output
+-   `--quiet`: Suppress most output
+-   `--sequential`: Run validations sequentially instead of in parallel
+-   `--seed N`: Set random seed for reproducible results
 
 ## Understanding Results
 
@@ -155,72 +157,86 @@ Each validation returns a comprehensive result dictionary:
 
 ### Key Metrics
 
-- **validation_passed**: Boolean indicating if all claims passed validation
-- **confidence**: Overall confidence level (0.0 to 1.0)
-- **p_value**: Statistical significance (smaller is better, typically < 0.001)
-- **effect_size**: Magnitude of effects observed (typically > 0.8 for large effects)
-- **claims_validated/claims_tested**: Number of claims that passed validation
+-   **validation_passed**: Boolean indicating if all claims passed validation
+-   **confidence**: Overall confidence level (0.0 to 1.0)
+-   **p_value**: Statistical significance (smaller is better, typically < 0.001)
+-   **effect_size**: Magnitude of effects observed (typically > 0.8 for large effects)
+-   **claims_validated/claims_tested**: Number of claims that passed validation
 
 ### Interpreting Results
 
-- **PASSED**: All claims validated with high confidence (p < 0.001, large effect sizes)
-- **FAILED**: One or more claims failed validation or showed insufficient evidence
-- **ERROR**: Technical error occurred during validation
+-   **PASSED**: All claims validated with high confidence (p < 0.001, large effect sizes)
+-   **FAILED**: One or more claims failed validation or showed insufficient evidence
+-   **ERROR**: Technical error occurred during validation
 
 ## Validation Modules
 
 ### Universal Problem-Solving Engine
-Tests the theoretical claims about reality as a universal problem-solving engine:
-- Computational impossibility of real-time reality generation
-- Universal solvability theorem
-- Navigation vs computation indeterminability
 
-### BMD Information Catalysis  
+Tests the theoretical claims about reality as a universal problem-solving engine:
+
+-   Computational impossibility of real-time reality generation
+-   Universal solvability theorem
+-   Navigation vs computation indeterminability
+
+### BMD Information Catalysis
+
 Tests Biological Maxwell's Demons and information catalysis claims:
-- Information processing speedup
-- Frame selection efficiency
-- Catalytic information processing
+
+-   Information processing speedup
+-   Frame selection efficiency
+-   Catalytic information processing
 
 ### Quantum Membrane Dynamics
+
 Tests quantum membrane dynamics and ENAQT claims:
-- Room-temperature quantum coherence
-- ENAQT ion channel efficiency  
-- Quantum information processing advantages
+
+-   Room-temperature quantum coherence
+-   ENAQT ion channel efficiency
+-   Quantum information processing advantages
 
 ### Self-Awareness
+
 Tests genuine self-awareness and metacognitive monitoring:
-- Four-file system architecture
-- Metacognitive monitoring accuracy
-- Uncertainty quantification
-- Genuine vs simulated self-awareness
+
+-   Four-file system architecture
+-   Metacognitive monitoring accuracy
+-   Uncertainty quantification
+-   Genuine vs simulated self-awareness
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Import Errors**
-   ```
-   ModuleNotFoundError: No module named 'imhotep_validation'
-   ```
-   Solution: Ensure the package is installed (`pip install -e .` in demo directory)
+
+    ```
+    ModuleNotFoundError: No module named 'imhotep_validation'
+    ```
+
+    Solution: Ensure the package is installed (`pip install -e .` in demo directory)
 
 2. **Missing Dependencies**
-   ```
-   ModuleNotFoundError: No module named 'numpy'
-   ```
-   Solution: Install dependencies (`pip install -r requirements.txt`)
+
+    ```
+    ModuleNotFoundError: No module named 'numpy'
+    ```
+
+    Solution: Install dependencies (`pip install -r requirements.txt`)
 
 3. **Permission Errors**
-   ```
-   PermissionError: [Errno 13] Permission denied: './validation_results'
-   ```
-   Solution: Use a different output directory or check permissions
+
+    ```
+    PermissionError: [Errno 13] Permission denied: './validation_results'
+    ```
+
+    Solution: Use a different output directory or check permissions
 
 4. **Memory Issues**
-   ```
-   MemoryError: Unable to allocate array
-   ```
-   Solution: Use `parallel_validation=False` or reduce the number of trials
+    ```
+    MemoryError: Unable to allocate array
+    ```
+    Solution: Use `parallel_validation=False` or reduce the number of trials
 
 ### Getting Help
 
@@ -229,17 +245,17 @@ If you encounter issues:
 1. Check that all dependencies are installed: `pip list`
 2. Verify Python version: `python --version` (must be ≥ 3.7)
 3. Check package status:
-   ```python
-   import imhotep_validation as iv
-   print(iv.get_validation_status())
-   ```
+    ```python
+    import imhotep_validation as iv
+    print(iv.get_validation_status())
+    ```
 
 ### Performance Notes
 
-- **Parallel Validation**: Faster but uses more memory
-- **Sequential Validation**: Slower but more memory-efficient
-- **Random Seeds**: Use consistent seeds for reproducible results
-- **Output Directory**: Results are saved in JSON format for later analysis
+-   **Parallel Validation**: Faster but uses more memory
+-   **Sequential Validation**: Slower but more memory-efficient
+-   **Random Seeds**: Use consistent seeds for reproducible results
+-   **Output Directory**: Results are saved in JSON format for later analysis
 
 ## Advanced Usage
 

@@ -113,7 +113,7 @@ def quick_validation(verbose=True, random_seed=42, output_dir=None):
 # Package metadata
 VALIDATION_MODULES = [
     'universal_problem_solving',
-    'bmd_information_catalysis', 
+    'bmd_information_catalysis',
     'quantum_membrane_dynamics',
     'self_awareness'
 ]
@@ -146,17 +146,17 @@ def initialize_validation_environment():
     try:
         import numpy as np
         import random
-        
+
         seed = 42
         np.random.seed(seed)
         random.seed(seed)
-        
+
         try:
             import torch
             torch.manual_seed(seed)
         except ImportError:
             pass
-            
+
     except ImportError:
         pass
 
@@ -177,7 +177,7 @@ __all__ = [
     'ValidationBase',
 
     # Validators
-    'UniversalProblemSolvingValidator', 
+    'UniversalProblemSolvingValidator',
     'BMDInformationCatalysisValidator',
     'QuantumMembraneDynamicsValidator',
     'SelfAwarenessValidator',
